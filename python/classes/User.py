@@ -1,11 +1,11 @@
 class User:
-	def __init__(self, id: str):
+	def __init__(self, id: str, name: str, password: str, email: str, phone: str):
 		self.__id__ = id
 		self.__cart__ = {}
-		self.__name__ = None
-		self.__email__ = None
-		self.__password__ = None
-		self.__phone__ = None
+		self.__name__ = name
+		self.__email__ = email
+		self.__password__ = password
+		self.__phone__ = phone
 		self.__status__ = "CUSTOMER"
 		self.__isAdmin__ = False
 		self.__points__ = 0
@@ -54,6 +54,9 @@ class User:
 
 	def get_name(self) -> str:
 		return self.__name__
+
+	def get_email(self) -> str:
+		return self.__email__
 
 	def get_password(self) -> str:
 		return self.__password__
