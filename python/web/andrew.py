@@ -2,7 +2,6 @@ from flask import *
 from python.classes.User import User
 import shelve, python.web.form as form
 
-
 # Done by Andrew
 def login():
 	user_login = form.UserLogin(request.form)
@@ -16,12 +15,14 @@ def login():
 				session['name'] = user_db[user].get_name()
 				session['id'] = user_db[user].get_id()
 				session['status'] = user_db[user].get_status()
+				session['points'] = user_db[user].get_points()
 				user_status = True
 				user_error = False
 				break
 			else:
 				user_status = False
 				user_error = True
+				# user_login.password.errors.append("Invalid Password")
 		user_db.close()
 	return user_login, user_status, user_error
 
@@ -34,6 +35,7 @@ def logout():
 		session.pop('name', None)
 		session.pop('id', None)
 		session.pop('status', None)
+		session.pop('points', None)
 
 		user_status = False
 	return user_status
@@ -53,6 +55,8 @@ def register():
 
 		session['name'] = user_db[key].get_name()
 		session['id'] = user_db[key].get_id()
+		session['status'] = user_db[key].get_status()
+		session['points'] = user_db[key].get_points()
 
 		user_status = True
 
@@ -69,7 +73,7 @@ def account_update():
 	key = session.get('id', None)
 	user_db = shelve.open('database/user/user')
 
-	if request.method == 'POST' and user_update.validate:
+	if request.method == 'POST' and user_update.validate():
 		user_dict = {}
 		user_dict = user_db[key]
 
@@ -77,6 +81,9 @@ def account_update():
 		user_dict.set_email(user_update.email.data)
 
 		user_db[key] = user_dict
+
+		session['user_update'] = user_db[key].get_name()
+
 	else:
 		user_update.phone.data = user_db[key].get_phone()
 		user_update.email.data = user_db[key].get_email()
@@ -101,7 +108,8 @@ def account_delete():
 
 		session.pop('name', None)
 		session.pop('id', None)
-		session.pop('status', None)        
+		session.pop('status', None)  
+		session.pop('points', None)      
 
 		user_status = False
 

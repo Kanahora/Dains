@@ -8,47 +8,40 @@
 </head>
 
 <body>
-	{% if nav != True %}
-	<ul class="nav justify-content-center">
+	{% if nav != True %} <!-- CUSTOMER NAVBAR -->
+	<ul class="nav navbar navbar-expand-lg bg-light d-flex justify-content-end">
 		<li class="nav-item">
-			<a class="nav-link disabled" href="#">Logo</a>
-		</li>
-		<li class="nav-item">
-			{% if user_status == False %}
-			<a class="nav-link disabled" href="/home">Menu</a>
-			{% else %}
-			<a class="nav-link" href="/home">Menu</a>
-			{% endif %}
-		</li>
-		<li class="nav-item">
+			<!-- if USER != log in / register -->
 			{% if user_status == False %}
 			<a class="nav-link" href="/login">Sign In</a>
+			<!-- if USER == login / register -->
 			{% else %}
-
+			<!-- Link for Staff -->
+			{% if session.get('status', None) != 'CUSTOMER' %}
+			<a class="nav-link" href="/account_manage">Staff Mode</a>
+			{% endif %}
 		<li class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
 				data-bs-toggle="dropdown" aria-expanded="false">
-				{{ name }}
+				{{ session.get('name', None) }}
 			</a>
 			<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-				{% if status != 'CUSTOMER' %}
-				<li><a class="dropdown-item" href="/account_manage">Switch to Staff</a></li>
 				<li><a class="dropdown-item" href="/account_update">Saved Contact Details</a></li>
 				<li><a class="dropdown-item" href="#">Reset Password</a></li>
 				<li><a class="dropdown-item" href="/account_delete" data-bs-toggle="modal"
 						data-bs-target="#modalDelete">Delete Account</a></li>
 				<li><a class="dropdown-item" href="/logout" data-bs-toggle="modal" data-bs-target="#modalLogOut">Log
 						Out</a></li>
-				{% else %}
-				<li><a class="dropdown-item" href="/account_update">Saved Contact Details</a></li>
-				<li><a class="dropdown-item" href="#">Reset Password</a></li>
-				<li><a class="dropdown-item" href="/account_delete" data-bs-toggle="modal"
-						data-bs-target="#modalDelete">Delete Account</a></li>
-				<li><a class="dropdown-item" href="/logout" data-bs-toggle="modal" data-bs-target="#modalLogOut">Log
-						Out</a></li>
-				{% endif %}
 			</ul>
 		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#">Cart</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#">Points: {{ session.get('points', None) }}</a>
+		</li>
+
+		<!-- MODALS -->
 		<div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -90,8 +83,8 @@
 		{% endif %}
 		</li>
 	</ul>
-	{% else %}
-	<ul class="nav flex-column">
+	{% else %} <!-- STAFF NAVBAR -->
+	<ul class="nav flex-column ">
 		<li class="nav-item">
 			<a class="nav-link" href="/account_manage">Account</a>
 		</li>
@@ -102,9 +95,16 @@
 			<a class="nav-link" href="/reward_manage">Reward</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="/home">Switch to Customer</a>
+			<a class="nav-link" href="/home">Customer Mode</a>
 		</li>
 	</ul>
+	{% endif %}
+
+	{% if 'user_update' in session %}
+	<div class="alert alert-warning alert-dismissible fade show" role="alert">
+		<strong>{{ session.pop('user_update', None) }}</strong> was updated.
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>
 	{% endif %}
 
 	<div class="container-fluid">

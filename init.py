@@ -21,10 +21,10 @@ def login():
 
 
 	if user_status == True:
-		return render_template('glenn/home.html', user_status=user_status, name=session.get('name', None), status=session.get('status', None))
+		return render_template('glenn/home.html', user_status=user_status)
 	else:
-		if user_error == True:
-			return redirect(url_for('login'))
+		# if user_error == True:
+		# 	return render_template('andrew/login.html', form=user_login, user_status=user_status)
 		return render_template('andrew/login.html', form=user_login, user_status=user_status)
 
 
@@ -35,7 +35,7 @@ def logout():
 	if logout == False:
 		return redirect(url_for('login'))
 	else:
-		return render_template('includes/base.html', user_status=logout, name=session.get('name', None))
+		return render_template('includes/base.html', user_status=logout)
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -45,7 +45,7 @@ def register():
 	user_status = register[1]
 
 	if user_status == True:
-		return render_template('glenn/home.html', user_status=user_status, name=session.get('name', None), status=session.get('status', None))
+		return render_template('glenn/home.html', user_status=user_status)
 	else:
 		return render_template('andrew/register.html', form=user_register, user_status=user_status)
 
@@ -55,7 +55,8 @@ def account_update():
 	account_update = andrew.account_update()
 	user_update = account_update[0]
 	user_status = account_update[1]
-	return render_template('andrew/account_update.html', form=user_update, user_status=user_status, name=session.get('name', None))
+
+	return render_template('andrew/account_update.html', form=user_update, user_status=user_status)
 
 
 @app.route('/account_delete', methods=['GET', 'POST'])
@@ -65,14 +66,14 @@ def account_delete():
 	if account_delete == False:
 		return redirect(url_for('login'))
 	else:
-		return render_template('includes/base.html', user_status=account_delete, name=session.get('name', None))
+		return render_template('includes/base.html', user_status=account_delete)
 # End of Andrew's Work
 
 
 # Start of Glenn's Work
 @app.route('/home')
 def home():
-	return render_template('glenn/home.html', user_status=True, name=session.get('name', None)) # For your other web pages, pass these 2 parameters for the navbar to work
+	return render_template('glenn/home.html', user_status=True) # For your other web pages, pass these 2 parameters for the navbar to work
 # End of Glenn's Work
 
 
