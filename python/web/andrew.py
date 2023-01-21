@@ -22,7 +22,6 @@ def login():
 			else:
 				user_status = False
 				user_error = True
-				# user_login.password.errors.append("Invalid Password")
 		user_db.close()
 	return user_login, user_status, user_error
 

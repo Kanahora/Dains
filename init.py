@@ -23,8 +23,8 @@ def login():
 	if user_status == True:
 		return render_template('glenn/home.html', user_status=user_status)
 	else:
-		# if user_error == True:
-		# 	return render_template('andrew/login.html', form=user_login, user_status=user_status)
+		if user_error == True:
+			session['error'] = 'Incorrect Email and/or Password. Please try again.'
 		return render_template('andrew/login.html', form=user_login, user_status=user_status)
 
 
