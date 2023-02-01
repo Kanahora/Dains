@@ -23,7 +23,8 @@ def login():
 		user_db.close()
 
 	if user_status == True:
-		return render_template("index.html", user_status=user_status)
+		products = shelve.open("database/products")
+		return redirect(url_for("show_index", products=products, user_status=user_status))
 	else:
 		if user_error == True:
 			session["error"] = "Incorrect Email and/or Password. Please try again."
@@ -41,6 +42,7 @@ def logout():
 		user_status = False
 
 	if user_status == False:
-		return redirect(url_for("show_login"))
+		return redirect(url_for("show_logout"))
 	else:
-		return render_template("index.html", user_status=user_status)
+		products = shelve.open("database/products")
+		return redirect(url_for("show_index", products=products, user_status=user_status))
