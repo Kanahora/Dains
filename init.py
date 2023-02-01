@@ -22,14 +22,7 @@ def show_logout():
 
 @app.route('/register', methods=['GET', 'POST'])
 def show_register():
-    function = register.register()
-    user_register = function[0]
-    user_status = function[1]
-
-    if user_status == True:
-        return render_template('index.html', user_status=user_status)
-    else:
-        return render_template('andrew/register.html', form=user_register, user_status=user_status)
+    return register.register()
 
 
 @app.route('/settings', methods=['GET', 'POST'])
