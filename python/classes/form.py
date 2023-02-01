@@ -41,8 +41,8 @@ class UserLogin(Form):
         'Email', [validators.Email(message="Enter a valid Email"), validators.DataRequired(message='Enter your Email')])
 
     password = PasswordField('Password', [
-        validators.DataRequired(message='Enter your Password'),
-        validators.Length(min=8,message='Enter a valid Password')
+        validators.DataRequired(message='Enter your Password'), validators.Regexp(regex='^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$'
+        , message= 'Password must contain at least 8 characters, one uppercase letter, one lowercase letter, and one digit')
     ])
     
 # Done by Andrew
