@@ -42,70 +42,11 @@
 	transform: scale(1.1);
 }
 #quick-order {
-	background-image: url("../images/quickorderbackground.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
 	background-color: rgb(0, 0, 0);
-	margin-top: -6%;
+	margin-top: -2.6%;
+	height: 50em;
 	transition: all 1s;
 	box-shadow: 0px -10px 50px rgb(35, 0, 0);
-}
-#quick-order .header {
-	padding-top: 100px;
-}
-#quick-order .header .content {
-	padding-top: 20px;
-	padding-bottom: 20px;
-	background-color: rgba(0, 0, 0, 0.896);
-	border: 1px solid grey;
-	border-radius: 10px 10px 0 0;
-}
-#quick-order .title h1,
-#quick-order .title h4 {
-	color: rgb(184, 1, 1);
-	font-weight: bolder;
-}
-#quick-order .title h1 {
-	font-size: 45px;
-}
-#quick-order .title h4 {
-	color: rgb(221, 221, 221);
-}
-#quick-order .content .cards {
-	padding-top: 20px;
-	padding-right: 20px;
-	padding-left: 20px;
-}
-#quick-order .content .cards .card {
-	border: 1px solid rgb(180, 29, 29);
-	background-color: rgb(0, 0, 0);
-	margin-bottom: 20px;
-	box-shadow: 0px 0px 10px rgb(56, 8, 8);
-}
-#quick-order .content .cards .card .card-body #name {
-	color: rgb(170, 2, 2);
-	font-weight: 600;
-	text-transform: uppercase;
-}
-#quick-order .content .cards .card .card-body #price {
-	color: rgb(177, 177, 177);
-	font-style: italic;
-	font-size: small;
-}
-#quick-order .content .cards .card .card-body .card-img-top {
-	width: 100%;
-	border-radius: 5px;
-	padding-bottom: 20px;
-}
-#quick-order .content .footer a {
-	padding-top: 20px;
-	color: rgb(69, 9, 9);
-	text-decoration: none;
-	font-weight: bold;
-	transition: all 1s;
-}
-#quick-order .content .footer a:hover {
-	color: rgb(150, 22, 22);
 }
 
 @media only screen and (max-width:575px) {
@@ -126,8 +67,5 @@
 @media only screen and (max-width:800px) {
 	#quick-order {
 		margin-top: 0;
-	}
-	#quick-order .header {
-		padding-top: 50px;
 	}
 }

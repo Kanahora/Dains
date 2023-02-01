@@ -1,8 +1,31 @@
 body {
     overflow: hidden;
+    color: white;
+
 }
+
+.modal {
+    color: black;
+}
+
 #background {
     height: 100%;
     width: auto;
     background-color: rgb(17, 17, 17);
+}
+
+#form {
+    padding-top: 30px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.btn {
+    margin-top: 8px;
+}
+
+.text-danger {
+    margin-top: 2px;
 }
