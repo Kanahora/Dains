@@ -1,6 +1,5 @@
 from flask import *
-import shelve, python.src.login as login, python.src.register as register, python.src.settings as settings
-from python.src import index
+from python.src import index, login, register, settings
 
 app = Flask(__name__)
 app.secret_key = "secret"
