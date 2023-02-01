@@ -26,7 +26,7 @@ def run():
 			# Otherwise, go to login
 			else:
 				print("Heading to login")
-				return render_template("index.html", products=products)
+				return redirect(url_for("/login"))
 	return render_template("index.html", products=products)
 
 def initialize_admin():
