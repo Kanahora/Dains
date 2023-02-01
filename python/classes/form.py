@@ -6,14 +6,14 @@ from flask import session
 
 # Done by Andrew
 def duplicate_email(form, field):
-    user_db = shelve.open('database/user/user')
+    user_db = shelve.open('database/users')
     for user in user_db:
         if field.data == user_db[user].get_email():
             raise ValidationError('The Email is already in use')
 
 # Done by Andrew
 def duplicate_phone(form, field):
-    user_db = shelve.open('database/user/user')
+    user_db = shelve.open('database/users')
     for user in user_db:
         if field.data == user_db[user].get_phone():
             raise ValidationError('The Mobile Number is already in use')
