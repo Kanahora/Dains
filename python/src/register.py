@@ -7,7 +7,7 @@ def register():
 	user_status = False
 
 	if request.method == 'POST' and user_register.validate():
-		user_db = shelve.open('database/user/user')
+		user_db = shelve.open('database/users')
 		user_object = User(str(len(user_db)), user_register.name.data, user_register.password.data, user_register.email.data, user_register.phone.data)
 		key = user_object.get_id()
 		value = user_object
