@@ -22,4 +22,8 @@ def register():
 
 		user_db.close()
 
-	return user_register, user_status
+	if user_status == True:
+		products = shelve.open("database/products")
+		return redirect(url_for("show_index"), user_status=user_status, products=products)
+	else:
+		return render_template("andrew/register.html", form=user_register, user_status=user_status)
