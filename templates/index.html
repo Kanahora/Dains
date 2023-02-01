@@ -1,0 +1,23 @@
+{% extends "@includes/extend.html" %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/index.css')}}">
+{% endblock %}
+{% block content %}
+<!-- Main -->
+<div class="container-fluid" id="main">
+    <div class="row" id="main-text">
+        <div class="col-sm-6 d-flex flex-column justify-content-center align-items-center">
+            <img class="img-fluid" src="{{ url_for('static', filename='images/whitelogo.png') }}" id="main-text-logo">
+            <h1 class="text-center" id="text-content"> BEST BURGERS IN SINGAPORE </h1>
+            <h3 class="text-center" id="text-content"> PEOPLE WHO LOVE TO EAT ARE ALWAYS THE BEST PEOPLE </h3>
+            <a href="" id="text-button"> START YOUR ORDER </a>
+        </div>
+        <div class="col-sm-6" class="image main-image" id="main-image">
+            <img class="img-fluid" src="{{ url_for('static', filename='images/mainburger.png') }}">
+        </div>
+    </div>
+</div>
+<!-- Quick Order -->
+<div class="container-fluid" id="quick-order">
+</div>
+{% endblock %}
