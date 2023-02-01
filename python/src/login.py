@@ -8,7 +8,7 @@ def login():
 	user_error = False
 
 	if request.method == 'POST' and user_login.validate():
-		user_db = shelve.open('database/user/user')
+		user_db = shelve.open('database/users')
 		for user in user_db:
 			if user_login.email.data == user_db[user].get_email() and user_login.password.data == user_db[user].get_password():
 				session['name'] = user_db[user].get_name()
