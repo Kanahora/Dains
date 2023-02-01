@@ -12,28 +12,12 @@ def show_index():
 
 @app.route('/login', methods=['GET', 'POST'])
 def show_login():
-    function = login.login()
-    user_login = function[0]
-    user_status = function[1]
-    user_error = function[2]
-
-
-    if user_status == True:
-        return render_template('index.html', user_status=user_status)
-    else:
-        if user_error == True:
-            session['error'] = 'Incorrect Email and/or Password. Please try again.'
-        return render_template('andrew/login.html', form=user_login, user_status=user_status)
+    return login.login()
 
 
 @app.route('/logout', methods=['GET', 'POST'])
 def show_logout():
-	logout = login.logout()
-
-	if logout == False:
-		return redirect(url_for('show_login'))
-	else:
-		return render_template('index.html', user_status=logout)
+    return login.logout()
 
 
 @app.route('/register', methods=['GET', 'POST'])
