@@ -21,22 +21,42 @@
 <div class="container-fluid" id="quick-order">
     <div class="container header">
         <div class="row content">
-            <div class="title justify-content-center text-center">
+            <div class="justify-content-center text-center {{ 'unavailable' if products.__len__() < 1 }} {{ 'title' if products.__len__() > 0 }}">
                 <h1> QUICK ORDER </h1>
                 <h4> POPULAR $5 MEALS FOR A QUICK MEAL </h4>
             </div>
             <div class="cards">
                 <div class="row">
+                    {% if products.__len__() > 0 %}
+                    {% for product in products %}
+                    {% if products[product].get_cost() <= 5 %}
                     <div class="col-md-3">
                         <div class="card mx-auto w-100">
                             <div class="card-body">
+                                {% if products[product].get_category() == "Fries" %}
+                                <img src="{{ url_for('static', filename='images/fries.jpg') }}" class="card-img-top">
+                                {% else %}
                                 <img src="{{ url_for('static', filename='images/burger.jpg') }}" class="card-img-top">
-                                <h6 class="card-subtitle" id="name"> Classic BarbeQ </h6>
-                                <p class="card-text" id="price"> SGD$4.99 </p>
-                                <p class="card-text"> This is the greatest burger to ever exist in Singapore. Idealised by Gordon Ramsay and endorsed by the finest chefs worldwide. </p>
+                                {% endif %}
+                                <h6 class="card-subtitle" id="name"> {{ products[product].get_name() }} </h6>
+                                <p class="card-text" id="price"> {{ "SGD${:0,.2f}".format(products[product].get_cost()) }} </p>
+                                <p class="card-text"> Placeholder Description </p>
+                                <form method="post">
+                                    <button type="submit" value="{{ product }}" class="btn btn-primary" name="quickorder-id"> Submit </button>
+                                </form>
                             </div>
                         </div>
                     </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% else %}
+                    <div class="container d-flex flex-column align-items-center unavailable-description">
+                        <h1> OOPS! </h1>
+                        <h4 class="text-center"> 
+                            Looks like we don't have any quick orders available at the moment <br> Feel free to browse the rest of our options by clicking below
+                        </h4>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
             <div class="footer justify-content-center text-center">
