@@ -32,7 +32,7 @@ def run():
 def initialize_admin():
 	users = shelve.open("database/users")
 	if len(users) < 1 or not users.get("0"):
-		user = User.User("0", "Console", "dains123", "dainsadmin@gmail.com", "83897086")
+		user = User.User("0", "Console", "Dains123", "dainsadmin@gmail.com", "83897086")
 		user.set_admin()
 		key = user.get_id()
 		users[key] = user
