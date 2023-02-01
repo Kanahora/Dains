@@ -24,8 +24,9 @@ def login():
 
 	if user_status == True:
 		return render_template("index.html", user_status=user_status)
-	elif user_error == True:
-		session["error"] = "Incorrect Email and/or Password. Please try again."
+	else:
+		if user_error == True:
+			session["error"] = "Incorrect Email and/or Password. Please try again."
 		return render_template("andrew/login.html", form=user_login, user_status=user_status)
 
 
