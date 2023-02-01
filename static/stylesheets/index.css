@@ -52,6 +52,7 @@
 }
 #quick-order .header {
 	padding-top: 100px;
+	padding-bottom: 100px;
 }
 #quick-order .header .content {
 	padding-top: 20px;
@@ -61,15 +62,29 @@
 	border-radius: 10px 10px 0 0;
 }
 #quick-order .title h1,
-#quick-order .title h4 {
-	color: rgb(184, 1, 1);
+#quick-order .unavailable h1 {
+	font-size: 45px;
 	font-weight: bolder;
+	color: rgb(66, 66, 66)
+}
+#quick-order .title h4,
+#quick-order .unavailable h4 {
+	font-weight: 300;
 }
 #quick-order .title h1 {
-	font-size: 45px;
+	color: rgb(131, 9, 9);
 }
 #quick-order .title h4 {
-	color: rgb(221, 221, 221);
+	color: rgb(196, 196, 196);
+}
+#quick-order .content .cards .unavailable-description h1 {
+	color: rgb(131, 9, 9);
+	font-weight: bolder;
+	font-size: 45px;
+}
+#quick-order .content .cards .unavailable-description h4 {
+	font-weight: 300;
+	color: rgb(196, 196, 196);
 }
 #quick-order .content .cards {
 	padding-top: 20px;
@@ -80,7 +95,11 @@
 	border: 1px solid rgb(180, 29, 29);
 	background-color: rgb(0, 0, 0);
 	margin-bottom: 20px;
-	box-shadow: 0px 0px 10px rgb(56, 8, 8);
+	box-shadow: 0px 0px 30px rgb(56, 8, 8);
+	transition: all 0.2s;
+}
+#quick-order .content .cards .card:hover {
+	transform: scale(1.05);
 }
 #quick-order .content .cards .card .card-body #name {
 	color: rgb(170, 2, 2);
@@ -94,11 +113,14 @@
 }
 #quick-order .content .cards .card .card-body .card-img-top {
 	width: 100%;
+	height: 12rem;
 	border-radius: 5px;
 	padding-bottom: 20px;
 }
-#quick-order .content .footer a {
+#quick-order .content .footer {
 	padding-top: 20px;
+}
+#quick-order .content .footer a {
 	color: rgb(69, 9, 9);
 	text-decoration: none;
 	font-weight: bold;
