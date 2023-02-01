@@ -19,5 +19,30 @@
 </div>
 <!-- Quick Order -->
 <div class="container-fluid" id="quick-order">
+    <div class="container header">
+        <div class="row content">
+            <div class="title justify-content-center text-center">
+                <h1> QUICK ORDER </h1>
+                <h4> POPULAR $5 MEALS FOR A QUICK MEAL </h4>
+            </div>
+            <div class="cards">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card mx-auto w-100">
+                            <div class="card-body">
+                                <img src="{{ url_for('static', filename='images/burger.jpg') }}" class="card-img-top">
+                                <h6 class="card-subtitle" id="name"> Classic BarbeQ </h6>
+                                <p class="card-text" id="price"> SGD$4.99 </p>
+                                <p class="card-text"> This is the greatest burger to ever exist in Singapore. Idealised by Gordon Ramsay and endorsed by the finest chefs worldwide. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer justify-content-center text-center">
+                <a href=""> VIEW MORE </a>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
