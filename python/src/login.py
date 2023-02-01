@@ -1,5 +1,4 @@
 from flask import *
-from python.classes.User import User
 import shelve, python.classes.form as form
 
 def login():
@@ -22,7 +21,12 @@ def login():
 				user_status = False
 				user_error = True
 		user_db.close()
-	return user_login, user_status, user_error
+
+	if user_status == True:
+		return render_template("index.html", user_status=user_status)
+	elif user_error == True:
+		session["error"] = "Incorrect Email and/or Password. Please try again."
+		return render_template("andrew/login.html", form=user_login, user_status=user_status)
 
 
 def logout():
@@ -33,6 +37,9 @@ def logout():
 		session.pop('id', None)
 		session.pop('status', None)
 		session.pop('points', None)
-
 		user_status = False
-	return user_status
+
+	if user_status == False:
+		return redirect(url_for("show_login"))
+	else:
+		return render_template("index.html", user_status=user_status)
