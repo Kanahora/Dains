@@ -1,5 +1,4 @@
 from flask import *
-from python.classes.User import User
 import shelve, python.classes.form as form
 
 def account_update():
@@ -25,8 +24,7 @@ def account_update():
 		user_update.email.data = user_db[key].get_email()
 
 	user_db.close()
-
-	return user_update, user_status
+	return render_template("andrew/settings.html", form=user_update, user_status=user_status)
 
 
 def account_delete():
@@ -34,7 +32,7 @@ def account_delete():
 
 	if request.method == 'POST':
 		user_dict = {}
-		user_db = shelve.open('database/user/user')
+		user_db = shelve.open('database/users')
 		user_dict = user_db
 
 		user_dict.pop(session.get('id', None))
@@ -48,4 +46,8 @@ def account_delete():
 
 		user_status = False
 
-	return user_status
+	if user_status == False:
+		return redirect(url_for("show_login"))
+	else:
+		products = shelve.open("database/products")
+		return render_template("index.html", user_status=user_status, products=products)
