@@ -7,7 +7,7 @@ def account_update():
 	user_status = True
 
 	key = session.get('id', None)
-	user_db = shelve.open('database/user/user')
+	user_db = shelve.open('database/users')
 
 	if request.method == 'POST' and user_update.validate():
 		user_dict = {}
