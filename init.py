@@ -1,6 +1,6 @@
 from flask import *
 import shelve, python.src.login as login, python.src.register as register, python.src.settings as settings
-from python.classes.User import User
+from python.src import index
 
 app = Flask(__name__)
 app.secret_key = "secret"
@@ -8,19 +8,7 @@ app.secret_key = "secret"
 
 @app.route("/", methods=["GET", "POST"])
 def show_index():
-    user_object = User('0', 'Andrew Leong', 'Dains123', 'DainsAdmin@gmail.com', '88654101')
-    user_object.set_admin()
-    key = user_object.get_id()
-    value = user_object
-	
-    user_db = shelve.open('database/user/user')
-    
-    if len(user_db) < 1:
-        user_db[key] = value
-        user_db.close()
-    else:
-        user_db.close()
-    return render_template("index.html")
+    return index.run()
 
 
 @app.route('/login', methods=['GET', 'POST'])
