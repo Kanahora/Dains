@@ -1,0 +1,42 @@
+{% extends "@includes/extend.html" %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/login.css') }}">
+{% endblock %}
+{% block title %} Register Page {% endblock %}
+{% block content %}
+<div class="container-fluid" id="background">
+    <div class="container" id="form">
+        <form method="POST" action="" novalidate>
+            <div class="form-group">
+                {{ render_field(form.phone, class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ render_field(form.email, class="form-control") }}
+            </div>
+            <input type="submit" value="Submit" class="btn btn-primary" />
+            <a class="btn btn-secondary" href="/account_delete" data-bs-toggle="modal"
+                data-bs-target="#modalDelete">Delete Account</a>
+        </form>
+
+        <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Delete Account?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <form action="{{ url_for('account_delete') }}" method="POST">
+                            <input type="submit" value="Delete" class="btn btn-primary" name="Delete">
+                        </form>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
