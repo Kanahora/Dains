@@ -33,4 +33,8 @@ def show_settings():
 def account_delete():
 	return settings.account_delete()
 
+@app.route("/staff/account_manage", methods=['GET', 'POST'])
+def account_manage():
+    return 
+
 app.run()
