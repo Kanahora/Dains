@@ -1,5 +1,6 @@
 from flask import *
 from python.src import index, login, register, settings
+from python.src.Insan import accounts
 
 app = Flask(__name__)
 app.secret_key = "secret"
@@ -27,15 +28,17 @@ def show_register():
 
 @app.route('/settings', methods=['GET', 'POST'])
 def show_settings():
-	return settings.account_update()
+    return settings.account_update()
+
 
 @app.route('/account_delete', methods=['GET', 'POST'])
 def account_delete():
-	return settings.account_delete()
+    return settings.account_delete()
 
-@app.route("/staff/account_manage", methods=['GET', 'POST'])
-def account_manage():
-    return 
+
+@app.route("/staff/accounts_manage", methods=['GET', 'POST'])
+def accounts_manage():
+    return accounts.manage()
+
 
 app.run()
-

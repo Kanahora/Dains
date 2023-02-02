@@ -1,1 +1,59 @@
 {% extends "@includes/admin.html" %}
+{% block tabletitle %}
+Manage Accounts
+{% endblock %}
+{% block table %}
+<div>
+    {% if count == 0 %}
+    <p> No accounts have been made </p>
+    {% else %}
+    <p> There {{ 'is' if count == 1 }}{{ 'are' if count > 1}} {{ count }} account{{ 's' if count > 1 }} available </p>
+    {% endif %}
+</div>
+<thead>
+    <tr>
+        <th> Unique ID </th>
+        <th> Name </th>
+        <th> Email Address </th>
+        <th> Phone Number </th>
+        <th> Status </th>
+    </tr>
+</thead>
+{% for user in user_list %}
+<tr>
+    <td> {{ user_list[user].get_id() }} </td>
+    <td> {{ user_list[user].get_name() }} </td>
+    <td> {{ user_list[user].get_email() }} </td>
+    <td> {{ user_list[user].get_phone() }} </td>
+    <td> {{ user_list[user].get_status() }} </td>
+    <td> <a href="" class="btn btn-warning"> Update </a> </td>
+    <td>
+        <form action="" method="POST">
+            <!-- Open Modal Button -->
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="modal_{{user_list[user].get_id()}}"> Delete </button>
+            <!-- Modal -->
+            <div class="modal" id="modal_{{user_list[user].get_id()}}">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!-- Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title"> Delete Confirmation </h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <!-- Body -->
+                        <div class="modal-body">
+                            Are you sure you want to delete {{user_list[user].get_name()}}?
+                        </div>
+                        <!-- Footer -->
+                        <div class="modal-footer">
+                            <input type="submit" value="Delete" class="btn btn-danger">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Cancel </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </td>
+{% endfor %}
+</tbody>
+{% endblock %}

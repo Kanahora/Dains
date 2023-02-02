@@ -50,7 +50,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="nav-account">
                             {% if session.get("status") == "STAFF" %}
-                            <a class="dropdown-item" href="#"> STAFF </a>
+                            <a class="dropdown-item" href="/staff/accounts_manage"> STAFF </a>
                             {% endif %}
                             <a class="dropdown-item" href="/settings"> SETTINGS </a>
                             <a class="dropdown-item" href="/logout" data-bs-toggle="modal"
