@@ -1,1 +1,35 @@
+{% extends "@includes/admin.html" %}
+{% block tabletitle %}
+Manage Rewards
+{% endblock %}
+
+
+    {% block createbutton %}
+    <a href="/staff/reward_create" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Reward</span></a>	
+    {% endblock %}
+
+
+{% block table %}
+{% from "@includes/_formHelper.html" import render_field %}
+<form method="POST" action="" novalidate>
+    <h3 class="reward_title">Create Reward</h3>
+    <div class="form-group">
+        <label for="" class="form-fields">Name</label>
+        {{ render_field(form.name, class="form-control") }}
+    </div>
+    <div class="form-group">
+        <label for="" class="form-fields">Points</label>
+        {{ render_field(form.points, class="form-control") }}
+    </div>
+    <div id="prof">
+        <div class="form-group">
+            <label for="" class="form-fields">Description</label>
+            {{ render_field(form.description, class="form-control") }}
+        </div>
+    </div>
+    <input type="submit" value="Add Reward" class="btn btn-primary" />
+    </form>
+
+{% endblock %}
+
 
