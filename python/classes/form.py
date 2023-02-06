@@ -75,4 +75,4 @@ class UpdateAccount(Form):
 class CreateRewardForm(Form):
     name = StringField("", [validators.DataRequired(message="Enter Reward Name")])
     points = IntegerField("", [validators.DataRequired(message="Enter Points")])
-    description = TextAreaField("", [validators.DataRequired(message="Enter Reward Description")
+    description = TextAreaField("", [validators.DataRequired(message="Enter Reward Description")])
