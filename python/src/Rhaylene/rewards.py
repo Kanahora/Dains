@@ -43,4 +43,4 @@ def create_reward():
                                create_reward_form.points.data, create_reward_form.description.data)
         rewards[reward.get_reward_id()] = reward
         return redirect(url_for('rewards_manage'))
-    return render_template('Rhaylene/rewards_create.html', form=create_reward_form)
+    return render_template('Rhaylene/create_reward.html', form=create_reward_form)
