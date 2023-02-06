@@ -54,7 +54,7 @@ def delete_user(id):
 
 # Rhaylene
 @app.route("/staff/rewards_manage", methods=['GET', 'POST'])
-def reward_manage():
+def rewards_manage():
     return rewards.reward_manage()
 # END Rhaylene
 
