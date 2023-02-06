@@ -42,7 +42,7 @@ def account_delete():
 def accounts_manage():
     return accounts.manage()
 
-@app.route("staff/accounts_update/<id>", methods=['GET', 'POST'])
+@app.route("/staff/accounts_update/<id>", methods=['GET', 'POST'])
 def accounts_update():
     return accounts.update(id)
 
@@ -58,7 +58,7 @@ def reward_manage():
 # END Rhaylene
 
 # Ryan
-@app.route("staff/inventory_manage", methods=['GET', 'POST'])
+@app.route("/staff/inventory_manage", methods=['GET', 'POST'])
 def inventory_manage():
     return render_template("Ryan/inventory_manage.html")
 # END Ryan
