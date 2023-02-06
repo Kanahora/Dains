@@ -42,16 +42,26 @@ def account_delete():
 def accounts_manage():
     return accounts.manage()
 
+@app.route("staff/accounts_update/<id>", methods=['GET', 'POST'])
+def accounts_update:
+    return accounts.update(id)
+
 @app.route('/staff/delete_user/<id>', methods=['POST'])
 def delete_user(id):
     return accounts.delete_user(id)
 # END Insan
 
 # Rhaylene
-@app.route("/staff/reward_manage", methods=['GET', 'POST'])
+@app.route("/staff/rewards_manage", methods=['GET', 'POST'])
 def reward_manage():
-    return render_template("Rhaylene/reward_manage.html")
+    return render_template("Rhaylene/rewards_manage.html")
 # END Rhaylene
+
+# Ryan
+@app.route("staff/inventory_manage", methods=['GET', 'POST'])
+def inventory_manage():
+    return render_template("Ryan/inventory_manage.html")
+# END Ryan
 
 
 app.run()
