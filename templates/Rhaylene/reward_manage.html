@@ -1,0 +1,66 @@
+{% extends "@includes/admin.html" %}
+{% block tabletitle %}
+Manage Rewards
+{% endblock %}
+
+
+    {% block createbutton %}
+    <a href="/staff/reward_create" class="btn btn-success" data-toggle="modal" class="add-btn"><i class="material-icons">&#xE147;</i> <span>Add New Reward</span></a>	
+    {% endblock %}
+
+
+{% block table %}
+<div>
+    {% if count == 0 %}
+    <p> There are no rewards available. </p>
+    {% else %}
+    <p> There {{ 'is' if count == 1 }}{{ 'are' if count > 1}} {{ count }} reward{{ 's' if count > 1 }} available. </p>
+    {% endif %}
+</div>
+<thead>
+    <tr>
+        <th> Unique ID </th>
+        <th> Name </th>
+        <th> Points Required </th>
+        <th> Description </th>
+        <th></th>
+        <th></th>
+    </tr>
+</thead>
+{% for rewards in rewards_list %}
+<tr>
+    <td> {{ rewards.get_reward_id() }} </td>
+    <td> {{ rewards.get_reward_name() }} </td>
+    <td> {{ rewards.get_reward_points() }} </td>
+    <td> {{ rewards.get_reward_description() }} </td>
+    <td> <a href="/staff/reward_update/{{rewards.get_reward_id()}}" class="btn btn-warning"> Update </a> </td>
+    <td>
+        <form action="{{url_for('delete_reward', id=rewards.get_reward_id())}}" method="POST" class="delete-btn">
+            <!-- Open Modal Button -->
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal_{{rewards.get_reward_id()}}" > Delete </button>
+            <!-- Modal -->
+            <div class="modal" id="myModal_{{rewards.get_reward_id()}}">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!-- Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title"> Delete Confirmation </h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <!-- Body -->
+                        <div class="modal-body">
+                            Are you sure you want to delete {{rewards.get_reward_name()}}?
+                        </div>
+                        <!-- Footer -->
+                        <div class="modal-footer">
+                            <input type="submit" value="Delete" class="btn btn-danger">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Cancel </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </td>
+{% endfor %}
+</tbody>
+{% endblock %}
