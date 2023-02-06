@@ -43,7 +43,7 @@ def accounts_manage():
     return accounts.manage()
 
 @app.route("staff/accounts_update/<id>", methods=['GET', 'POST'])
-def accounts_update:
+def accounts_update():
     return accounts.update(id)
 
 @app.route('/staff/delete_user/<id>', methods=['POST'])
