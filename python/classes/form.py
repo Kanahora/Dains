@@ -53,3 +53,20 @@ class UpdateUser(Form):
 
     email = EmailField(
         'Email', [validators.Email(message="Enter a valid Email"), validators.DataRequired(message='Enter your Email'), duplicate_email])
+
+# Done by Insan
+class UpdateAccount(Form):
+    name = StringField('Name', [validators.Length(
+        min=1, max=150), validators.InputRequired(message='Enter your Name')])
+
+    phone = StringField('Mobile Number', validators=[
+        validators.InputRequired(message='Enter your Mobile Number'),
+        validators.Length(
+            min=8, max=8, message='Mobile Number must be 8 numerals'),
+        validators.Regexp(regex='^[8-9]', message='Mobile Number must start with 8 or 9'), duplicate_phone])
+
+    email = EmailField(
+        'Email', [validators.Email(message="Enter a valid Email"), validators.InputRequired(message='Enter your Email'), duplicate_email])
+
+    status = RadioField('Status', choices=[
+        'STAFF', 'CUSTOMER'], default='CUSTOMER')
