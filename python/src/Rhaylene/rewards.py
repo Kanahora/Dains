@@ -6,7 +6,7 @@ import python.classes.form as form
 
 def reward_manage():
     rewards = shelve.open("database/rewards")
-    return render_template('Rhaylene/reward_manage.html', count=len(rewards), rewards_list=rewards)
+    return render_template('Rhaylene/rewards_manage.html', count=len(rewards), rewards_list=rewards)
 
 
 def update_reward(id):
@@ -43,4 +43,4 @@ def create_reward():
                                create_reward_form.points.data, create_reward_form.description.data)
         rewards[reward.get_reward_id()] = reward
         return redirect(url_for('rewards_manage'))
-    return render_template('Rhaylene/reward_create.html', form=create_reward_form)
+    return render_template('Rhaylene/rewards_create.html', form=create_reward_form)
