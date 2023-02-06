@@ -41,6 +41,10 @@ def account_delete():
 @app.route("/staff/accounts_manage", methods=['GET', 'POST'])
 def accounts_manage():
     return accounts.manage()
+
+@app.route('/staff/delete_user/<id>', methods=['POST'])
+def delete_user(id):
+    return accounts.delete_user(id)
 # END Insan
 
 # Rhaylene
