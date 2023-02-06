@@ -70,3 +70,9 @@ class UpdateAccount(Form):
 
     status = RadioField('Status', choices=[
         'STAFF', 'CUSTOMER'], default='CUSTOMER')
+
+    
+class CreateRewardForm(Form):
+    name = StringField("", [validators.DataRequired(message="Enter Reward Name")])
+    points = IntegerField("", [validators.DataRequired(message="Enter Points")])
+    description = TextAreaField("", [validators.DataRequired(message="Enter Reward Description")
