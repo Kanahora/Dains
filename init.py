@@ -1,6 +1,7 @@
 from flask import *
 from python.src import index, login, register, settings
 from python.src.Insan import accounts
+from python.src.Rhaylene import rewards
 
 app = Flask(__name__)
 app.secret_key = "secret"
@@ -54,7 +55,7 @@ def delete_user(id):
 # Rhaylene
 @app.route("/staff/rewards_manage", methods=['GET', 'POST'])
 def reward_manage():
-    return render_template("Rhaylene/rewards_manage.html")
+    return rewards.reward_manage()
 # END Rhaylene
 
 # Ryan
