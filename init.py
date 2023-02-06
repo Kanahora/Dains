@@ -56,6 +56,10 @@ def delete_user(id):
 @app.route("/staff/rewards_manage", methods=['GET', 'POST'])
 def rewards_manage():
     return rewards.reward_manage()
+
+@app.route("/staff/create_reward", methods=['GET', 'POST'])
+def create_reward:
+    return rewards.create_reward()
 # END Rhaylene
 
 # Ryan
