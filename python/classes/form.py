@@ -17,30 +17,6 @@ def duplicate_phone(form, field):
     for user in user_db:
         if field.data == user_db[user].get_phone():
             raise ValidationError('The Mobile Number is already in use')
-
-# Done by Andrew
-def settings_email(form, field):
-    user_db = shelve.open('database/users')
-    user_list = user_db
-    for user in user_list:
-        if field.data == user_list[user].get_email():
-            user_list.pop(user)
-
-    for user in user_list:  
-            if field.data == user_list[user].get_email():
-                raise ValidationError('The Email is already in use')
-
-# Done by Andrew
-def settings_phone(form, field):
-    user_db = shelve.open('database/users')
-    user_list = user_db
-    for user in user_list:
-        if field.data == user_list[user].get_phone():
-            user_list.pop(user)
-
-    for user in user_list:        
-        if field.data == user_list[user].get_phone():
-            raise ValidationError('The Mobile Number is already in use')
             
 # Done by Andrew
 class CreateUser(Form):
@@ -73,10 +49,10 @@ class UserLogin(Form):
 class UpdateUser(Form):
     phone = StringField('Mobile Number', validators=[
                         validators.DataRequired(message='Enter your Mobile Number'), validators.Length(min=8, max=8, message='Mobile Number must be 8 numberals'), 
-                        validators.Regexp(regex='^[8-9]', message='Mobile Number must start with 8 or 9'), settings_phone])
+                        validators.Regexp(regex='^[8-9]', message='Mobile Number must start with 8 or 9'), duplicate_phone])
 
     email = EmailField(
-        'Email', [validators.Email(message="Enter a valid Email"), validators.DataRequired(message='Enter your Email'), settings_email])
+        'Email', [validators.Email(message="Enter a valid Email"), validators.DataRequired(message='Enter your Email'), duplicate_email])
 
     
 # Done by Insan
