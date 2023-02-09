@@ -1,7 +1,7 @@
 import shelve
 from flask import *
 from python.classes import User
-def run_index():
+def index():
 	create_admin()
 	products = shelve.open("database/products")
 	if request.method == "POST":
