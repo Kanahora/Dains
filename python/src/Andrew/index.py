@@ -9,7 +9,7 @@ def run(app: Flask):
 	def show_logout():
 		return login.logout()
 
-	@app.route("/register")
+	@app.route("/register", methods=["GET", "POST"])
 	def show_register():
 		return register.register()
 
