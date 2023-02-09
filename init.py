@@ -1,16 +1,13 @@
 from flask import *
-from python.src import index, login, register, settings
+from python.src import login, register, settings
+from python.src.Glenn import glenn
 from python.src.Insan import accounts
 from python.src.Rhaylene import rewards
 
 app = Flask(__name__)
 app.secret_key = "secret"
 
-# Glenn
-@app.route("/", methods=["GET", "POST"])
-def show_index():
-    return index.run()
-# END Glenn
+glenn.run(app)
 
 # Andrew
 @app.route('/login', methods=['GET', 'POST'])
