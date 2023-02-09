@@ -1,7 +1,7 @@
 from flask import *
 from python.src.Andrew import andrew
 from python.src.Glenn import glenn
-from python.src.Insan import accounts
+from python.src.Insan import insan
 from python.src.Rhaylene import rewards
 
 app = Flask(__name__)
@@ -9,6 +9,7 @@ app.secret_key = "secret"
 
 glenn.run(app)
 andrew.run(app)
+insan.run(app)
 
 # Insan
 @app.route("/staff/accounts_manage", methods=['GET', 'POST'])
