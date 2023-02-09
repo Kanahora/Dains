@@ -58,7 +58,7 @@ def rewards_manage():
     return rewards.reward_manage()
 
 @app.route("/staff/reward_create", methods=['GET', 'POST'])
-def create_reward:
+def create_reward():
     return rewards.create_reward()
 # END Rhaylene
 
