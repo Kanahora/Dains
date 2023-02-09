@@ -1,5 +1,5 @@
 from flask import *
-from python.src import login, register, settings
+from python.src.Andrew import andrew
 from python.src.Glenn import glenn
 from python.src.Insan import accounts
 from python.src.Rhaylene import rewards
@@ -8,32 +8,7 @@ app = Flask(__name__)
 app.secret_key = "secret"
 
 glenn.run(app)
-
-# Andrew
-@app.route('/login', methods=['GET', 'POST'])
-def show_login():
-    return login.login()
-
-
-@app.route('/logout', methods=['GET', 'POST'])
-def show_logout():
-    return login.logout()
-
-
-@app.route('/register', methods=['GET', 'POST'])
-def show_register():
-    return register.register()
-
-
-@app.route('/settings', methods=['GET', 'POST'])
-def show_settings():
-    return settings.account_update()
-
-
-@app.route('/account_delete', methods=['GET', 'POST'])
-def account_delete():
-    return settings.account_delete()
-# END Andrew
+andrew.run(app)
 
 # Insan
 @app.route("/staff/accounts_manage", methods=['GET', 'POST'])
