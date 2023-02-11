@@ -70,3 +70,12 @@ body {
     color:rgb(206, 42, 42);
     border: solid 2px rgb(206, 42, 42);
 }
+#navbar .nav-item .empty {
+    padding-top: 3px;
+}
+
+@media only screen and (max-width:990px) {
+    #navbar .nav-item .empty {
+        padding-top: 0px;
+    }
+}
