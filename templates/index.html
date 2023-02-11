@@ -29,17 +29,16 @@
                 <div class="row">
                     {% if products.__len__() > 0 %}
                     {% for product in products %}
-                    {% if products[product].get_cost() <= 5 %}
                     <div class="col-md-3">
                         <div class="card mx-auto w-100">
                             <div class="card-body">
-                                {% if products[product].get_category() == "Fries" %}
+                                {% if product.get_category() == "Fries" %}
                                 <img src="{{ url_for('static', filename='images/fries.jpg') }}" class="card-img-top">
                                 {% else %}
                                 <img src="{{ url_for('static', filename='images/burger.jpg') }}" class="card-img-top">
                                 {% endif %}
-                                <h6 class="card-subtitle" id="name"> {{ products[product].get_name() }} </h6>
-                                <p class="card-text" id="price"> {{ "SGD${:0,.2f}".format(products[product].get_cost()) }} </p>
+                                <h6 class="card-subtitle" id="name"> {{ product.get_name() }} </h6>
+                                <p class="card-text" id="price"> {{ "SGD${:0,.2f}".format(product.get_cost()) }} </p>
                                 <p class="card-text"> Placeholder Description </p>
                                 <form method="post">
                                     <button type="submit" value="{{ product }}" class="btn btn-primary" name="quickorder-id"> Submit </button>
@@ -47,7 +46,6 @@
                             </div>
                         </div>
                     </div>
-                    {% endif %}
                     {% endfor %}
                     {% else %}
                     <div class="container d-flex flex-column align-items-center unavailable-description">
