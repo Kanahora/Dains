@@ -4,6 +4,7 @@ from python.classes import User
 def run():
 	create_admin()
 	shelf_products = shelve.open("database/products")
+	carts = shelve.open("database/carts")
 	products = list()
 	for key in shelf_products:
 		product = shelf_products[key]
@@ -15,11 +16,11 @@ def run():
 			if id:
 				if session.get("name"):
 					print("Heading to checkout")
-					return render_template("index.html", products=products)
+					return render_template("index.html", products=products, carts=carts)
 			else:
 				print("Heading to login")
 				return redirect(url_for("show_login"))
-	return render_template("index.html", products=products)
+	return render_template("index.html", products=products, carts=carts)
 
 def create_admin():
 	users = shelve.open("database/users")
