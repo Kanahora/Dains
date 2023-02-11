@@ -34,8 +34,8 @@ class Product:
 		if self.__stock__ > 0:
 			self.__stock__ -= quantity
 
-	def has_addon(self) -> bool:
-		return self.__addon__w
+	def can_addon(self) -> bool:
+		return self.__addon__
 
 	def get_id(self) -> str:
 		return self.__id__
