@@ -12,12 +12,12 @@ def run():
 
 	if request.method == "POST":
 			id = request.form.get("quickorder-id")
+			print(id)
 			if id:
 				if session.get("name"):
-					print("Heading to checkout")
+					Cart.Cart(session.get("id")).add_product(id)
 					return render_template("index.html", products=products, Cart=Cart)
 			else:
-				print("Heading to login")
 				return redirect(url_for("show_login"))
 	return render_template("index.html", products=products, Cart=Cart)
 
