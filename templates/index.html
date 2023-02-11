@@ -41,7 +41,7 @@
                                 <p class="card-text" id="price"> {{ "SGD${:0,.2f}".format(product.get_cost()) }} </p>
                                 <p class="card-text"> Placeholder Description </p>
                                 <form method="post">
-                                    <button type="submit" value="{{ product }}" class="btn btn-primary" name="quickorder-id"> Submit </button>
+                                    <button type="submit" value="{{ product.get_id() }}" class="btn btn-primary" name="quickorder-id"> Submit </button>
                                 </form>
                             </div>
                         </div>
