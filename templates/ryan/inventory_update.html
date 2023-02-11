@@ -1,0 +1,26 @@
+{% extends "@includes/admin.html" %}
+{% block title %} Dains' Inventory Management Page {% endblock %}
+
+{% block content %}
+{% from "@includes/_formHelper.html" import render_field %}
+
+<h1 class="display-4">Update Product</h1>
+<form method="POST" action="" novalidate>
+    <div class="form-group">
+        {{ render_field(form.product_id, class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ render_field(form.product_name, class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ render_field(form.category, class="form-control") }}
+    </div>
+    <div class="form-group" >
+        {{ render_field(form.price, class="form-control") }}
+    </div>
+        <div class="form-group">
+        {{ render_field(form.stock, class="form-control") }}
+    </div>
+    <input type="submit" value="Update Product" class="btn btn-primary"/>
+</form>
+{% endblock %}
