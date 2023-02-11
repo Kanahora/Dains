@@ -3,7 +3,13 @@ from flask import *
 from python.classes import User
 def run():
 	create_admin()
-	products = shelve.open("database/products")
+	shelf_products = shelve.open("database/products")
+	products = list()
+	for key in shelf_products:
+		product = shelf_products[key]
+		if product.get_cost() < 2:
+			products.append(product)
+
 	if request.method == "POST":
 			id = request.form.get("quickorder-id")
 			if id:
