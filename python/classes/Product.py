@@ -6,12 +6,16 @@ class Product:
 		self.__category__ = category
 		self.__cost__ = cost
 		self.__stock__ = 0
+		self.__addon__ = False
 
 	def set_name(self, name: str):
 		self.__name__ = name
 
 	def set_image(self, url: str):
 		self.__image__ = url
+
+	def set_addon(self, addon: bool):
+		self.__addon__ = addon
 
 	def set_category(self, category: str):
 		self.__category__ = category
@@ -29,6 +33,9 @@ class Product:
 			quantity = 1
 		if self.__stock__ > 0:
 			self.__stock__ -= quantity
+
+	def has_addon(self) -> bool:
+		return self.__addon__w
 
 	def get_id(self) -> str:
 		return self.__id__
