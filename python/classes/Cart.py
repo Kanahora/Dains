@@ -19,9 +19,14 @@ class Cart:
 		for product in cart:
 			result += 1
 		if result > 99:
-			result = "99+"
+			result = " 99+"
 		else:
-			result = str(result)
+			if result < 10 and result > 0:
+				result = f" 0{result}"
+			elif result >= 10:
+				result = f" {result}"
+			elif result == 0:
+				result = ""
 		return result
 
 	# assigns a unique id after the product id
