@@ -13,6 +13,17 @@ class Cart:
 		else:
 			return dict()
 
+	def quantity(self):
+		result = 0
+		cart = self.view_cart()
+		for product in cart:
+			result += 1
+		if result > 99:
+			result = "99+"
+		else:
+			result = str(result)
+		return result
+
 	# assigns a unique id after the product id
 	# this is for when trying to know which product is being edited
 	def product_id_number(self, product_id: str):
