@@ -8,11 +8,11 @@ Manage Inventory
 {% endblock %}
 
 {% block table %}
-<div>
+<div class = 'count-avail'>
     {% if count == 0 %}
-    <p> <u> No </u> products have been added </p>
+    <p> <u>No</u> products have been added</p>
     {% else %}
-    <p> There {{ 'is' if count == 1 }}{{ 'are' if count > 1}} <u>{{ count }} </u>product{{ 's' if count > 1 }} added </p>
+    <p> There {{ 'is' if count == 1 }}{{ 'are' if count > 1}} <u>{{ count }} </u> product{{ 's' if count > 1 }} added </p>
     {% endif %}
 </div>
 <thead>
