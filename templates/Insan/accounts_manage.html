@@ -10,57 +10,203 @@ Manage Accounts
     <p> There {{ 'is' if count == 1 }}{{ 'are' if count > 1}} {{ count }} account{{ 's' if count > 1 }} available </p>
     {% endif %}
 </div>
-<thead>
-    <tr>
-        <th> Unique ID </th>
-        <th> Name </th>
-        <th> Email Address </th>
-        <th> Phone Number </th>
-        <th> Status </th>
-        <th></th>
-        <th></th>
-    </tr>
-</thead>
-<tbody>
-    {% for user in user_list %}
-    <tr>
-        <td> {{ user.get_id() }} </td>
-        <td> {{ user.get_name() }} </td> 
-        <td> {{ user.get_email() }} </td>
-        <td> {{ user.get_phone() }} </td>
-        <td> {{ user.get_status() }} </td>
-        <td> <a href="/staff/accounts_update/{{user.get_id()}}" class="btn btn-warning"> Update </a> </td>
-        <td>
-            <form action = "{{url_for('delete_user', id=user.get_id())}}" method="POST" class="delete-btn">
-                <!-- Button to Open the Modal -->
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal_{{user.get_id()}}">Delete</button>
-                <!-- The Modal -->
-                <div class="modal" id="myModal_{{user.get_id()}}">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Delete Confirmation</h4>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+
+    {%if session.get("id") == "0"%}
+
+    <thead>
+        <tr>
+            <th> Unique ID </th>
+            <th> Name </th>
+            <th> Email Address </th>
+            <th> Phone Number </th>
+            <th> Status </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for user in user_list %}
+
+        <tr>
+            <td> {{ user.get_id() }} </td>
+            <td> {{ user.get_name() }} </td> 
+            <td> {{ user.get_email() }} </td>
+            <td> {{ user.get_phone() }} </td>
+            <td> {{ user.get_status() }} </td>
+
+            {%if user.get_id() == "0" %}
+
+            <td> <a href="/staff/accounts_update/{{user.get_id()}}" class="btn btn-warning"> Update </a> </td>
+            <td>
+                <form action = "{{url_for('delete_user', id=user.get_id())}}" method="POST" class="delete-btn">
+                    <!-- Button to Open the Modal -->
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#myModal_{{user.get_id()}}" disabled>Delete</button>
+                    <!-- The Modal -->
+                    <div class="modal" id="myModal_{{user.get_id()}}">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Delete Confirmation</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    Are you sure you want to delete {{user.get_name()}}?
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                <input type="submit" value="Delete" class="btn btn-danger">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                             </div>
 
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                Are you sure you want to delete {{user.get_name()}}?
-                            </div>
-
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                            <input type="submit" value="Delete" class="btn btn-danger">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         </div>
-
                     </div>
-                </div>
-            </form>
-        </td>
-    </tr>
-    {% endfor %}
-</tbody>
-{% endblock %}
+                </form>
+            </td>
 
+            {%else%}
+
+            <td> <a href="/staff/accounts_update/{{user.get_id()}}" class="btn btn-warning"> Update </a> </td>
+            <td>
+                <form action = "{{url_for('delete_user', id=user.get_id())}}" method="POST" class="delete-btn">
+                    <!-- Button to Open the Modal -->
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal_{{user.get_id()}}">Delete</button>
+                    <!-- The Modal -->
+                    <div class="modal" id="myModal_{{user.get_id()}}">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Delete Confirmation</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    Are you sure you want to delete {{user.get_name()}}?
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                <input type="submit" value="Delete" class="btn btn-danger">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </td>
+
+            {%endif%}
+
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+    {%else%}
+    
+    <thead>
+        <tr>
+            <th> Unique ID </th>
+            <th> Name </th>
+            <th> Email Address </th>
+            <th> Phone Number </th>
+            <th> Status </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for user in user_list %}
+
+        <tr>
+            <td> {{ user.get_id() }} </td>
+            <td> {{ user.get_name() }} </td> 
+            <td> {{ user.get_email() }} </td>
+            <td> {{ user.get_phone() }} </td>
+            <td> {{ user.get_status() }} </td>
+
+            {%if user.get_status() == "STAFF" %}
+
+            <td> <a href="/staff/accounts_update/{{user.get_id()}}" class="btn btn-secondary disabled" role="button" aria-disabled="true"> Update </a> </td>
+            <td>
+                <form action = "{{url_for('delete_user', id=user.get_id())}}" method="POST" class="delete-btn">
+                    <!-- Button to Open the Modal -->
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#myModal_{{user.get_id()}}" disabled>Delete</button>
+                    <!-- The Modal -->
+                    <div class="modal" id="myModal_{{user.get_id()}}">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Delete Confirmation</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    Are you sure you want to delete {{user.get_name()}}?
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                <input type="submit" value="Delete" class="btn btn-danger">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </td>
+
+            {%else%}
+
+            <td> <a href="/staff/accounts_update/{{user.get_id()}}" class="btn btn-warning"> Update </a> </td>
+            <td>
+                <form action = "{{url_for('delete_user', id=user.get_id())}}" method="POST" class="delete-btn">
+                    <!-- Button to Open the Modal -->
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal_{{user.get_id()}}">Delete</button>
+                    <!-- The Modal -->
+                    <div class="modal" id="myModal_{{user.get_id()}}">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Delete Confirmation</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    Are you sure you want to delete {{user.get_name()}}?
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                <input type="submit" value="Delete" class="btn btn-danger">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </td>
+
+            {%endif%}
+
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+    {%endif%}
+
+{% endblock %}
