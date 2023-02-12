@@ -1,6 +1,21 @@
 {% extends "@includes/extend.html" %}
 {% block styles %}
 <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/checkout.css')}}">
+{% if not Cart.Cart(session.get('id')).view_cart() %}
+<style>
+	body {
+		background-color: black;
+	}
+</style>
+{% else %}
+<style>
+	body {
+		background-image: url("{{ url_for('static', filename='images/quickorderbackground.jpg') }}");
+		background-size: cover;
+		background-repeat: repeat;
+	}
+</style>
+{% endif %}
 {% endblock %}
 {% block content %}
 <div class="container">
