@@ -1,3 +1,4 @@
+# Glenn
 class User:
 	def __init__(self, id: str, name: str, password: str, email: str, phone: str):
 		self.__id__ = id
