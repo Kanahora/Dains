@@ -16,7 +16,7 @@ class Identifier:
 		return id
 
 	def new_reward_id(self):
-		ids = str(uuid.uuid14())[:6]
+		id = str(uuid.uuid4())[:6]
 		ids = shelve.open("database/ids")
 		if not ids.get("reward"):
 			ids["reward"] = [id]
