@@ -46,6 +46,12 @@ class Cart:
 		return checkout_cart
 
 	def get_total(self):
+		total = self.get_total_before_gst()
+		total += 4.5
+		total += self.get_gst()
+		return total
+
+	def get_total_before_gst(self):
 		total = 0
 		products = shelve.open("database/products")
 		cart = self.view_checkout_cart()
@@ -58,9 +64,11 @@ class Cart:
 			elif isinstance(product, int):
 				total += products[id].get_cost() * (cart[id_num] - 1)
 			total += products[id].get_cost()
-		total += 4.5
-		total += (total/100) * 8
 		return total
+
+	def get_gst(self):
+		return ((self.get_total_before_gst() + 4.5)/100) * 8
+
 
 	def delete_product(self, product_id:str):
 		result = False
