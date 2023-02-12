@@ -35,7 +35,7 @@ class UpdateProduct(Form):
     product_name = StringField("Product Name",
                                validators =[
                                    validators.Length(min=1, max=100, message = 'Enter a product name that is not more than 100 characters'),
-                                   validators.DataRequired(message = 'Enter a product name'), duplicate_product_name ])
+                                   validators.DataRequired(message = 'Enter a product name') ])
 
     category = SelectField("Category",
                            validators = [validators.DataRequired(message = 'Select a category')],
