@@ -1,3 +1,4 @@
+# Done by Glenn
 class Product:
 	def __init__(self, id: str, name: str, category: str, cost: int) -> None:
 		self.__id__ = id
