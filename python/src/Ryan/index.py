@@ -5,9 +5,9 @@ def run(app: Flask):
 	def show_inventory_manage():
 		return manage.inventory_manage()
 
-	@app.route("/staff/inventory_update/<id>", methods=["GET", "POST"])
-	def show_inventory_update():
-		return update.inventory_update()
+	@app.route("/staff/inventory_update/<product>", methods=["GET", "POST"])
+	def show_inventory_update(product):
+		return update.inventory_update(product)
 	
 	@app.route("/staff/inventory_create/", methods=["GET", "POST"])
 	def show_inventory_create():
