@@ -34,15 +34,15 @@
                         <a class="nav-link" href="/"> HOME </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href=""> MENU </a>
+                        <a class="nav-link" href="/menu"> MENU </a>
                     </li>
                     {% if not session.get("name") %}
                     <li class="nav-item">
-                        <a class="nav-link" href=""> CHECKOUT </a>
+                        <a class="nav-link" href="/login"> CHECKOUT </a>
                     </li>
                     {% else %}
                     <li class="nav-item", href="">
-                        <a class="nav-link" href=""> <i class="fa-solid fa-cart-shopping{{ ' empty' if Cart.Cart(session.get('id')).quantity() == '' }}"></i>{{ Cart.Cart(session.get("id")).quantity() }}</a>
+                        <a class="nav-link" href="/checkout"> <i class="fa-solid fa-cart-shopping{{ ' empty' if Cart.Cart(session.get('id')).quantity() == '' }}"></i>{{ Cart.Cart(session.get("id")).quantity() }}</a>
                     </li>
                     {% endif %}
                     {% if not session.get("name") %}
