@@ -23,12 +23,12 @@ class Product:
 	def set_cost(self, cost: int):
 		self.__cost__ = cost
 
-	def add_stock(self, **quantity: int):
+	def add_stock(self, quantity: int):
 		if not quantity:
 			quantity = 1
 		self.__stock__ += quantity
 
-	def remove_stock(self, **quantity: int):
+	def remove_stock(self, quantity: int):
 		if not quantity:
 			quantity = 1
 		if self.__stock__ > 0:
