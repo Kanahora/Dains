@@ -55,6 +55,8 @@
 	background: #f5f5f5;
 	font-family: 'Varela Round', sans-serif;
 	font-size: 17px;
+	background-image: url("../images/mainbackground.png");
+ 	background-color: #cccccc;
 }
 .table-responsive {
     margin: 30px 0;
@@ -75,9 +77,9 @@
 	margin: -20px -25px 10px;
 	border-radius: 3px 3px 0 0;
 }
-.table-title h2 {
+.table-title h3 {
 	margin: 5px 0 0;
-	font-size: 24px;
+	font-size: 25px;
 }
 .table-title .btn-group {
 	float: right;
@@ -92,6 +94,7 @@
 	border: none;
 	outline: none !important;
 	margin-left: 10px;
+	font-size: 22px;
 }
 .table-title .btn i {
 	float: left;
@@ -164,44 +167,14 @@ table.table .avatar {
 }    
 
 
-/* Modal styles */
-.modal .modal-dialog {
-	max-width: 400px;
-}
-.modal .modal-header, .modal .modal-body, .modal .modal-footer {
-	padding: 20px 30px;
-}
-.modal .modal-content {
-	border-radius: 3px;
-	font-size: 14px;
-}
-.modal .modal-footer {
-	background: #ecf0f1;
-	border-radius: 0 0 3px 3px;
-}
-.modal .modal-title {
-	display: inline-block;
-}
-.modal .form-control {
-	border-radius: 2px;
-	box-shadow: none;
-	border-color: #dddddd;
-}
-.modal textarea.form-control {
-	resize: vertical;
-}
-.modal .btn {
-	border-radius: 2px;
-	min-width: 100px;
-}	
-.modal form label {
-	font-weight: normal;
-}	
+
 
 form{
     padding: 10px 15px;
 }
-
+.delete-btn{
+	margin-bottom: 0px;
+}
 .form-fields{
     font-size: 17px;
     color: black;
@@ -209,6 +182,21 @@ form{
 .reward_title{
     text-align: center;
 }
-.delete-btn{
-    margin-bottom: 0px;
+
+.top-bar{
+	margin-right: 0px;
+	padding-right: 0px;
 }
+
+.add-btn{
+	float: right;
+}
+
+i.material-icons{
+	padding-top: 4px;
+}
+
+#dropdownMenuButton1{
+	background-color: #838383;
+}
+
