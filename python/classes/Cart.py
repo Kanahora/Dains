@@ -59,6 +59,8 @@ class Cart:
 			elif isinstance(product, int):
 				total += products[id].get_cost() * (cart[id_num] - 1)
 			total += products[id].get_cost()
+		total += 4.5
+		total += (total/100) * 8
 		return total
 
 
