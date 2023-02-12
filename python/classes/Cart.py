@@ -1,4 +1,3 @@
-# Done by Glenn
 import shelve
 class Cart:
 	def __init__(self, id: str) -> None:
@@ -63,7 +62,20 @@ class Cart:
 		total += (total/100) * 8
 		return total
 
-
+	def delete_product(self, product_id:str):
+		result = False
+		ids_to_delete = list()
+		cart = self.view_cart()
+		for id in cart:
+			if id.startswith(product_id):
+				ids_to_delete.append(id)
+		for id in ids_to_delete:
+			result = True
+			cart.pop(id)
+			carts = shelve.open("database/carts")
+			carts[self.get_id()] = cart
+			carts.close()
+		return result
 
 	# assigns a unique id after the product id
 	# this is for when trying to know which product is being edited
