@@ -194,7 +194,13 @@ table.table .avatar {
 	margin-right: 10px;
 }
 
-
+/* Delete Pop Up */
+h4.modal-title{
+	color: black;
+}
+.modal-body{
+	color: black;
+}
 /* Create/Update Form Fields*/
 form{
     padding: 10px 15px;
