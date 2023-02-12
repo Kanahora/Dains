@@ -12,9 +12,9 @@ Manage Rewards
 {% block table %}
 <div>
     {% if count == 0 %}
-    <p> There are no rewards available. </p>
+    <p> There are <u>no</u> rewards available. </p>
     {% else %}
-    <p> There {{ 'is' if count == 1 }}{{ 'are' if count > 1}} {{ count }} reward{{ 's' if count > 1 }} available. </p>
+    <p> There {{ 'is' if count == 1 }} {{ 'are' if count > 1}} <u>{{ count }}</u>   reward{{ 's' if count > 1 }} available. </p>
     {% endif %}
 </div>
 <thead>
