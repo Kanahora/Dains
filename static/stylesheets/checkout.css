@@ -1,5 +1,7 @@
 body {
-	background-color: black;
+	background-image: url("../images/quickorderbackground.jpg");
+	background-size: cover;
+	background-repeat: repeat;
 }
 .empty-cart {
 	color: rgb(164, 0, 0);
@@ -28,4 +30,81 @@ body {
 button {
 	border: none;
 	background-color: transparent;
+}
+
+.checkout-info {
+	padding: 15px;
+	padding-left: 25px;
+	background-color: rgba(0, 0, 0, 0.729);
+	margin-top: 50px;
+}
+.checkout-info .detail .header {
+	padding-top: 15px;
+	padding-bottom: 5px;
+	background-color: rgb(144, 0, 0);
+	color: black;
+}
+.checkout-info .detail .header h1 {
+	font-weight: 900;
+}
+.checkout-info .detail .header h2 {
+	font-weight: 800;
+}
+.checkout-info .card {
+	margin-top: 20px;
+	border-radius: 0;
+	background-color: rgb(255, 255, 255);
+	border-right: 5px solid rgb(0, 0, 0);
+	border-bottom: 5px solid rgb(0, 0, 0);
+}
+h3.product-name {
+	text-transform: uppercase;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px rgb(52, 52, 52);
+	color: rgb(0, 0, 0);
+}
+.delete-button h5 {
+	color: rgb(0, 0, 0);
+	transition: all 0.2s;
+}
+.delete-button h5:hover {
+	transform: scale(1.05);
+	color: rgb(168, 0, 0);
+}
+.subtotal-display {
+	color: rgb(56, 56, 56);
+	font-style: italic;
+}
+.edit-button {
+	padding-top: 30px;
+}
+.edit-button a {
+	text-decoration: none;
+	color: rgb(56, 56, 56);
+	transition: all 0.2s;
+}
+.edit-button a:hover {
+	color: rgb(98, 98, 98);
+}
+.quantity-button {
+	padding-top: 30px;
+	transition: all 0.2s;
+	color: black;
+}
+.quantity-button:hover {
+	color: rgb(168, 0, 0)
+}
+
+.list-group-item {
+	background-color: rgb(255, 243, 243);
+}
+.list-group-item a {
+	text-decoration: none;
+}
+.list-group-item .addon-name {
+	font-size: larger;
+}
+.list-group-item .addon-cost {
+	font-style: italic;
+	color: rgb(63, 63, 63);
 }
