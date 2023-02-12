@@ -29,6 +29,39 @@ class Cart:
 				result = ""
 		return result
 
+	def view_checkout_cart(self):
+		checkout_cart = {}
+		products = shelve.open("database/products")
+		cart = self.view_cart()
+		for id_num in cart:
+			id = id_num.split("_")[0]
+			if products.get(id):
+				if not products[id].can_addon():
+					if checkout_cart.get(id):
+						checkout_cart[id] = checkout_cart[id] + 1
+					else:
+						checkout_cart[id] = 1
+				else:
+					checkout_cart[id_num] = cart[id_num]
+		return checkout_cart
+
+	def get_total(self):
+		total = 0
+		products = shelve.open("database/products")
+		cart = self.view_checkout_cart()
+		for id_num in cart:
+			id = id_num.split("_")[0]
+			product = cart[id_num]
+			if isinstance(product, list):
+				for addon_id in product:
+					total += products[addon_id].get_cost() / 2
+			elif isinstance(product, int):
+				total += products[id].get_cost() * (cart[id_num] - 1)
+			total += products[id].get_cost()
+		return total
+
+
+
 	# assigns a unique id after the product id
 	# this is for when trying to know which product is being edited
 	def product_id_number(self, product_id: str):
