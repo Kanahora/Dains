@@ -24,7 +24,7 @@ def account_update():
 		user_update.email.data = user_db[key].get_email()
 
 	user_db.close()
-	return render_template("andrew/settings.html", form=user_update, user_status=user_status)
+	return render_template("andrew/settings.html", form=user_update, user_status=user_status, Cart=Cart)
 
 
 def account_delete():
