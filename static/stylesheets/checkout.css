@@ -1,8 +1,3 @@
-body {
-	background-image: url("../images/quickorderbackground.jpg");
-	background-size: cover;
-	background-repeat: repeat;
-}
 .empty-cart {
 	color: rgb(164, 0, 0);
 	padding-top: 100px;
