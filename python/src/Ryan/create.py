@@ -10,10 +10,12 @@ def inventory_create():
         product = Product.Product(create_product.product_id.data,
                                create_product.product_name.data, 
                                create_product.category.data,
-                               create_product.price.data,
-                               create_product.stock.data
+                               create_product.price.data
                                )
-                               
+                              
+        product.add_stock(create_product.stock.data)
+        product.set_addon(create_product.addon.data)
+        
         products[product.get_id()] = product
         return redirect(url_for('show_inventory_manage', count=len(products), inventory_list=products))
     return render_template('Ryan/inventory_create.html', form=create_product)
