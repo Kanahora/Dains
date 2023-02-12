@@ -105,7 +105,7 @@
 			<!-- Receipt -->
 			<div class="col-md-4 receipt">
 				<div class="container receipt-table">
-					<table clas>
+					<table>
 						<tr>
 							<th> Subtotal </th>
 							<td align="right"> {{ "${:0,.2f}".format(Cart.Cart(session.get("id")).get_total_before_gst()) }}</td>
@@ -123,6 +123,23 @@
 							<td align="right"> <h1> {{ "${:0,.2f}".format(Cart.Cart(session.get("id")).get_total()) }} </h1></td>
 						</tr>
 					</table>
+				</div>
+				<div class="container reward">
+					<form method="POST" novalidate>
+						<div class="form-group text-start">
+							<span class="reward-header"> REWARD COUPON </span>
+							{{ render_field(form.field, class="form-control") }}
+						</div>
+						<input type="submit" class="reward-redeeem" value="REDEEM" />
+					</form>
+					<div class="row">
+						<div class="col-md-12 back-to-menu">
+							<a href="/menu" class="back-to-menu-button"> ADD MORE FOOD </a>
+						</div>
+						<div class="col-md-12 checkout">
+							<a href="" class="checkout-button"> CHECKOUT </a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
