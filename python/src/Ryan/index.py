@@ -5,7 +5,7 @@ def run(app: Flask):
 	def show_inventory_manage():
 		return manage.inventory_manage()
 
-	@app.route("/staff/inventory_update/<product_id>", methods=["GET", "POST"])
+	@app.route("/staff/inventory_update/<id>", methods=["GET", "POST"])
 	def show_inventory_update():
 		return update.inventory_update()
 	
@@ -13,6 +13,6 @@ def run(app: Flask):
 	def show_inventory_create():
 		return create.inventory_create()
 	
-	@app.route("/staff/delete_product/<product_id>", methods=["GET", "POST"])
-	def delete_product(id):
-		return delete.delete_product(id)
+	@app.route("/staff/delete_product/<product>", methods=["GET", "POST"])
+	def delete_product(product):
+		return delete.delete_product(product)
