@@ -10,7 +10,7 @@ Manage Inventory
 {% block table %}
 <div>
     {% if count == 0 %}
-    <p> No products have been added </p>
+    <p> <u> No products have been added </u></p>
     {% else %}
     <p> There {{ 'is' if count == 1 }}{{ 'are' if count > 1}} {{ count }} product{{ 's' if count > 1 }} added</p>
     {% endif %}
