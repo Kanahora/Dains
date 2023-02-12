@@ -17,7 +17,7 @@ class CreateProduct(Form):
 
     category = SelectField("Category",
                            validators = [validators.DataRequired(message = 'Select a category')],
-                           choices=[('','Select'),('B', 'Burger'), ('S', 'Sides'), ('D', 'Drinks'), ('Bu','Bucket')],
+                           choices=[('','Select'),('Burger', 'Burger'), ('Sides', 'Sides'), ('Drinks', 'Drinks'), ('Bucket','Bucket')],
                            default='')
 
 
