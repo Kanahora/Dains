@@ -25,6 +25,10 @@ Add product
         <div class="form-group">
         {{ render_field(form.stock, class="form-control") }}
     </div>
+    <div class="form-group">
+        {{form.addon.label}}
+        {{form.addon()}}
+    </div>
     <input type="submit" value="Add Product" class="btn btn-primary"/>
 </form>
 {% endblock %}
