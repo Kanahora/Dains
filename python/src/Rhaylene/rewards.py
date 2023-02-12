@@ -1,7 +1,7 @@
 from flask import *
 from python.classes import Reward
 import shelve
-import python.src.Rhaylene.form as form
+import python.classes.form as form
 from python.classes import Identifier
 
 def reward_manage():
@@ -10,7 +10,7 @@ def reward_manage():
 
 
 def reward_update(id):
-    update_reward_form = form.UpdateRewardForm(request.form)
+    update_reward_form = form.CreateRewardForm(request.form)
     rewards = shelve.open("database/rewards")
     
     if request.method == 'POST' and update_reward_form.validate():
@@ -22,7 +22,7 @@ def reward_update(id):
         reward.set_reward_discount(update_reward_form.discount.data)
 
         rewards[id] = reward
-        return redirect(url_for('reward_manage', count=len(rewards), rewards_list=rewards))
+        return redirect(url_for('reward_manage'))
     else:
         reward = rewards[id]
         
@@ -36,7 +36,7 @@ def delete_reward(id):
     rewards = shelve.open('database/rewards', 'w')
     
     rewards.pop(id)
-    return redirect(url_for('reward_manage', count=len(rewards), rewards_list=rewards))
+    return redirect(url_for('reward_manage'))
 
 
 def create_reward():
