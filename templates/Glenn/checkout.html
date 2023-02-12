@@ -1,13 +1,98 @@
 {% extends "@includes/extend.html" %}
 {% block styles %}
-<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/index.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/checkout.css')}}">
 {% endblock %}
 {% block content %}
 <div class="container">
 	{% if not Cart.Cart(session.get('id')).view_cart() %}
-	<p> Empty Cart </p>
+	<div class="d-flex flex-column align-items-center empty-cart">
+		<h1> <i class="fa-solid fa-cart-arrow-down"></i> </h1>
+		<h3 class="text-center"> YOUR SHOPPING BASKET IS EMPTY </h3>
+		<a href="/menu"> ADD FOOD </a>
+	</div>
 	{% else %}
-	<p> Not Empty Cart </p>
+	<div class="container checkout-info">
+		<div class="row">
+			<div class="col-md-8 detail">
+				<div class="row header">
+					<div class="col-md-12"> 
+						<div class="float-start"> <h1> YOUR ORDER </h1> </div>
+						<div class="float-end"> <h2> {{ "SGD${:0,.2f}".format(Cart.Cart(session.get('id')).get_total()) }} </h2> </div>
+					</div>
+				</div>
+				<div class="row">
+					{% set cart_session = Cart.Cart(session.get('id')) %}
+					{% for product_id in cart_session.view_checkout_cart() %}
+						{% set product = products[product_id.split("_")[0]] %}
+						<div class="card">	
+							<div class="card-body card-top">
+								<!-- Title -->
+								<div class="row">
+									<div class="card-title">
+										<div class="col-md-12">
+											<div class="float-start"> <h3 class="card-title product-name"> {{ product.get_name() }} </h3> </div>
+											<div class="float-end">
+												<form method="post">
+													<button type="submit" value="{{ product.get_id() }}" class="delete-button" name="delete"> <h5> <i class="fa-solid fa-trash"></i> </h5> </button>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- If the product is a list -->
+							{% set cart_product = cart_session.view_checkout_cart()[product_id] %}
+							{% if cart_product is iterable %}
+							{% for addon_id in cart_product %}
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item">
+										<p> <span class="addon-name"> {{ products[addon_id].get_name() }} </span> <span class="addon-cost"> "SGD${:0,.2f}".format(products[addon_id].get_cost() / 2) }} </span></p>
+									</li>
+								</ul>
+								{% endfor %}
+							{% endif %}
+							<!-- Footer -->
+							<div class="card-body">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="float-start">
+											{% if cart_product is iterable %}
+											<div class="card-text edit-button"> <a href=""> EDIT </a> </div>
+											{% else %}
+											<div class="card-text">
+												<form method="post">
+													<button type="submit" value="{{ product.get_id() }}" class="quantity-button" name="sub"> </i><i class="fa-solid fa-circle-minus"></i> </button>
+													<a> {{ cart_product }} </a>
+													<button type="submit" value="{{ product.get_id() }}" class="quantity-button" name="add"> <i class="fa-solid fa-circle-plus"></i> </button>
+												</form>
+											</div>
+											{% endif %}
+										</div>
+										<!-- Price -->
+										<div class="float-end">
+											{% set subtotal = product.get_cost() %}
+											{% if cart_product is iterable %}
+												{% for addon_id in cart_product %}
+												{% set subtotal = subtotal + (products[addon_id].get_cost() / 2) %}
+												{% endfor %}
+											{% else %}
+												{% set subtotal = product.get_cost() * cart_product %}
+											{% endif %}
+											<div class="card-text subtotal-display"> Subtotal <h4> {{ "SGD${:0,.2f}".format(subtotal) }} </h4> </div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+			<!-- Receipt -->
+			<div class="col-md-4">
+				<p> Receipt </p>
+			</div>
+		</div>
+	</div>
 	{% endif %}
 </div>
 {% endblock %}
