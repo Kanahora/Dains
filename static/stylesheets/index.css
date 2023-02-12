@@ -140,13 +140,13 @@
 	padding-top: 20px;
 }
 #quick-order .content .footer a {
-	color: rgb(69, 9, 9);
+	color: rgb(131, 9, 9);
 	text-decoration: none;
 	font-weight: bold;
-	transition: all 1s;
+	transition: all 0.5s;
 }
 #quick-order .content .footer a:hover {
-	color: rgb(150, 22, 22);
+	color: rgb(177, 10, 10);
 }
 
 @media only screen and (max-width:575px) {
