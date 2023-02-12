@@ -43,10 +43,143 @@
 }
 #quick-order {
 	background-color: rgb(0, 0, 0);
-	margin-top: -2.6%;
-	height: 50em;
+	margin-top: -6%;
 	transition: all 1s;
 	box-shadow: 0px -10px 50px rgb(35, 0, 0);
+}
+#quick-order .header {
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+#quick-order .header .content {
+	padding: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: rgba(0, 0, 0, 0.896);
+	border-left: 3px solid rgb(144, 0, 0);
+	border-bottom: 3px solid rgb(144, 0, 0);
+}
+#quick-order .title h1,
+#quick-order .unavailable h1 {
+	font-size: 45px;
+	font-weight: 900;
+	color: rgb(66, 66, 66)
+}
+#quick-order .title h1 {
+	color: rgb(131, 9, 9);
+}
+#quick-order .content .cards .unavailable-description h1 {
+	color: rgb(131, 9, 9);
+	font-weight: bolder;
+	font-size: 45px;
+}
+#quick-order .content .cards .unavailable-description h4 {
+	font-weight: 300;
+	color: rgb(196, 196, 196);
+}
+#quick-order .content .cards {
+	padding-top: 20px;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+#quick-order .content .cards .card {
+	border: 1px solid rgb(138, 11, 11);
+	background-color: rgb(0, 0, 0);
+	margin-bottom: 20px;
+	transition: all 0.2s;
+}
+#quick-order .content .cards .card:hover {
+	transform: scale(1.05);
+}
+#quick-order .content .cards .card .card-body #name {
+	color: rgb(143, 0, 0);
+	font-weight: 600;
+	text-transform: uppercase;
+}
+#quick-order .content .cards .card .card-body .quickorder-button {
+	font-weight: bold;
+	border-radius: 5px;
+	padding: 2px;
+	border: 1px solid rgb(131, 9, 9);
+	color: rgb(131, 9, 9);
+	background-color: rgb(0, 0, 0);
+	padding-left: 20px;
+	padding-right: 20px;
+	transition: all 0.5s;
+}
+#quick-order .content .cards .card .card-body .quickorder-button:disabled {
+	color: rgb(72, 72, 72);
+	border: 1px solid rgb(72, 72, 72);
+}
+#quick-order .content .cards .card .card-body .quickorder-button:enabled:hover {
+	border: 1px solid rgb(177, 10, 10);
+	color: rgb(177, 10, 10);
+}
+
+#quick-order .content .cards .card .card-body #price {
+	color: rgb(177, 177, 177);
+	font-style: italic;
+	font-size: small;
+}
+#quick-order .content .cards .card .card-body .card-img-top {
+	width: 100%;
+	height: 12rem;
+	border-radius: 5px;
+	padding-bottom: 20px;
+}
+#quick-order .content .footer {
+	padding-top: 20px;
+}
+#quick-order .content .footer a {
+	color: rgb(131, 9, 9);
+	text-decoration: none;
+	font-weight: bold;
+	transition: all 0.5s;
+}
+#quick-order .content .footer a:hover {
+	color: rgb(177, 10, 10);
+}
+
+#information {
+	background-color: rgb(0, 0, 0);
+}
+#information-button {
+	background-color: red;
+	padding: 3px;
+	border-radius: 5px;
+}
+
+#information .breakfast #breakfast-content h1 {
+	color: rgb(0, 0, 0);
+	background-color: rgb(149, 5, 5);
+	padding-left: 20px;
+	font-weight: 900;
+	margin-bottom: 50px;
+}
+#information .breakfast #breakfast-content h4 {
+	color: rgb(255, 255, 255);
+	padding-bottom: 30px;
+	font-weight: 700;
+	text-shadow: 2px 2px 2px rgb(95, 95, 95);
+}
+#information .breakfast #breakfast-content a {
+	margin-top: 50px;
+	background-color: rgb(144, 0, 0);
+	text-decoration: none;
+	padding: 10px;
+	font-weight: 900;
+	border-radius: 5px;
+	color: rgb(0, 0, 0);
+	transition: all 0.5s;
+}
+#information .breakfast #breakfast-content a:hover {
+	padding: 10.5px;
+	background-color: rgb(197, 2, 2);
+	font-size: larger;
+}
+#information .breakfast #breakfast-image {
+	border-left: 3px solid rgb(144, 0, 0);
+	border-right: 3px solid rgb(144, 0, 0);
 }
 
 @media only screen and (max-width:575px) {
@@ -67,5 +200,19 @@
 @media only screen and (max-width:800px) {
 	#quick-order {
 		margin-top: 0;
+	}
+	#quick-order .header {
+		padding-top: 50px;
+	}
+	#quick-order .header .content {
+		border: 3px solid rgb(144, 0, 0);
+	}
+	#information .breakfast #breakfast-content a:hover {
+		padding: 10px;
+		background-color: rgb(144, 0, 0);
+		font-size: 100%;
+	}
+	#information .breakfast #breakfast-image {
+		border: 3px solid rgb(144, 0, 0);
 	}
 }
