@@ -80,11 +80,11 @@ h3.product-name {
 }
 .edit-button a {
 	text-decoration: none;
-	color: rgb(56, 56, 56);
+	color: rgb(107, 0, 0);
 	transition: all 0.2s;
 }
 .edit-button a:hover {
-	color: rgb(98, 98, 98);
+	color: rgb(126, 0, 0);
 }
 .quantity-button {
 	padding-top: 30px;
