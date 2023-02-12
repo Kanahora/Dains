@@ -7,7 +7,7 @@ def run():
 	products = list()
 	for key in shelf_products:
 		product = shelf_products[key]
-		if product.get_cost() < 2:
+		if product.get_cost() < 6:
 			products.append(product)
 
 	if request.method == "POST":
