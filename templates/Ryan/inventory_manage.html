@@ -1,1 +1,84 @@
-<h1> Hello World </h1>
+{% extends "@includes/admin.html" %}
+{% block tabletitle %}
+Manage Inventory
+{% endblock %}
+
+{% block createbutton %}
+<a href="/staff/inventory_create" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Reward</span></a>	
+{% endblock %}
+
+{% block table %}
+<div>
+    {% if count == 0 %}
+    <p> No products have been added </p>
+    {% else %}
+    <p> There {{ 'is' if count == 1 }}{{ 'are' if count > 1}} {{ count }} products{{ 's' if count > 1 }} added</p>
+    {% endif %}
+</div>
+<thead>
+    <tr>
+        <th> Product ID </th>
+        <th> Product Name </th>
+        <th> Category </th>
+        <th> Price </th>
+        <th> Stock </th>
+        <th>Is add on?</th>
+        <th></th>
+        <th></th>
+    </tr>
+</thead>
+<tbody>
+    {% for product in product_list %}
+    <tr>
+        <td> {{ product_list[product].get_id() }} </td>
+        <td> {{ product_list[product].get_name() }} </td> 
+        {% if product_list[product].get_category() == "B" %}
+            <td>Burger</td>
+        {% elif product_list[product].get_category() == "S" %}
+            <td>Sides</td>
+          {% elif product_list[product].get_category() == "D" %}
+            <td>Drink</td>
+            {% elif product_list[product].get_category() == "Bu" %}
+            <td>Bucket</td>
+          {% endif %}
+        <td>{{ "$%.2f"|format(product_list[product].get_cost()) }}</td> 
+        <td> {{ product_list[product].get_stock() }} </td>
+        {% if product_list[product].can_addon() == True %}
+        <td>Yes</td>
+        {% elif product_list[product].can_addon() == False %}
+        <td>No</td>
+        {% endif %}
+        <td> <a href="/staff/inventory_update/{{product_list[product].get_id()}}" class="btn btn-warning"> Update </a> </td>
+        <td>
+            <form action = "{{url_for('delete_product', product= product_list[product].get_id())}}" method="POST" class="delete-btn">
+                <!-- Button to Open the Modal -->
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal_{{product_list[product].get_id()}}">Delete</button>
+                <!-- The Modal -->
+                <div class="modal" id="myModal_{{product_list[product].get_id()}}">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Delete Confirmation</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                Are you sure you want to delete {{product_list[product].get_name()}}?
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                            <input type="submit" value="Delete" class="btn btn-danger">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</tbody>
+{% endblock %}
