@@ -39,9 +39,12 @@
                                 {% endif %}
                                 <h6 class="card-subtitle" id="name"> {{ product.get_name() }} </h6>
                                 <p class="card-text" id="price"> {{ "SGD${:0,.2f}".format(product.get_cost()) }} </p>
-                                <p class="card-text"> Placeholder Description </p>
                                 <form method="post">
-                                    <button type="submit" value="{{ product.get_id() }}" class="btn btn-primary" name="quickorder-id"> Submit </button>
+                                    {% if product.get_stock() > 1 %}
+                                    <button type="submit" value="{{ product.get_id() }}" class="quickorder-button" name="quickorder-id"> ADD </button>
+                                    {% else %}
+                                    <button type="submit" value="{{ product.get_id() }}" class="quickorder-button" name="quickorder-id" disabled> ADD </button>
+                                    {% endif %}
                                 </form>
                             </div>
                         </div>
