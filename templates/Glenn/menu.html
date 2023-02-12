@@ -1,10 +1,10 @@
 {% extends "@includes/extend.html" %}
 {% block styles %}
-<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/index.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/menu.css')}}">
 {% endblock %}
 {% block content %}
-<div class="container-fluid">
-	<div class="container border">
+<div class="container-fluid bg">
+	<div class="container popper">
 		<!-- The header -->
 		<div class="header text-center">
 			<h1> {{ category if category }}{{ 'Full Menu' if not category }} </h1>
@@ -12,45 +12,45 @@
 		<!-- Menu -->
 		<div class="menu">
 			<!-- Side navigation compressed -->
-			<div class="border cat-nav compressed" style="display: none;">
+			<div class="cat-nav" id="compressed">
 				<table>
 					<tr>
-						<th rowspan="100"> <a href="/menu"> Full Menu </a> </th>
+						<th rowspan="100"> <a href="/menu"> ALL </a> </th>
 					</tr>
 					{% for cat in categories %}
 					<tr>
-						<td> <a href="/menu/{{ cat }}"> {{ cat }} </a> </td>
+						<td rowspan="100"> <a href="/menu/{{ cat }}"> {{ cat }} </a> </td>
 					</tr>
 					{% endfor %}
 				</table>
 			</div>
 			<div class="row">
 				<!-- Side navigation -->
-				<div class="col-md-2 border cat-nav">
+				<div class="col-md-2 cat-nav" id="uncompressed">
 					<table>
 						<tr>
-							<th> <a href="/menu"> Full Menu </a> </th>
+							<th> <a href="/menu" class="{{ 'active' if not category }}"> Full Menu </a> </th>
 						</tr>
 						{% for cat in categories %}
 						<tr>
-							<td> <a href="/menu/{{ cat }}"> {{ cat }} </a> </td>
+							<td> <a href="/menu/{{ cat }}" class="{{ 'active' if category == cat }}"> {{ cat }} </a> </td>
 						</tr>
 						{% endfor %}
 					</table>
 				</div>
 				<!-- Products display -->
-				<div class="col-md-10 border products-display">
+				<div class="col-md-10 products-display">
 					<div class="row">
 						{% for id in products %}
 						{% if (category and products[id].get_category() == category) or (not category) %}
-						<div class="col-md-3">
+						<div class="col-md-3 card-itself">
 							<div class="card">
 								<img src="{{ url_for('static', filename='images/burger.jpg') }}" class="card-img-top">
 								<div class="card-body">
 									<h5 class="card-title"> {{ products[id].get_name() }} </h5>
 									<p class="card-text"> {{ "SGD${:0,.2f}".format(products[id].get_cost()) }} </p>
 									<form method="post">
-										<button type="submit" name="add-to-cart" value="{{ products[id].get_id() }}"> ADD </button>
+										<button type="submit" id="addtocart-button" name="add-to-cart" value="{{ products[id].get_id() }}"> ADD </button>
 									</form>
 								</div>
 							</div>
