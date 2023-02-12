@@ -56,24 +56,17 @@
 	padding-top: 20px;
 	padding-bottom: 20px;
 	background-color: rgba(0, 0, 0, 0.896);
-	border-radius: 10px 10px 0 0;
-	box-shadow: 2px 2px 2px rgb(125, 0, 0);
+	border-left: 3px solid rgb(144, 0, 0);
+	border-bottom: 3px solid rgb(144, 0, 0);
 }
 #quick-order .title h1,
 #quick-order .unavailable h1 {
 	font-size: 45px;
-	font-weight: bolder;
+	font-weight: 900;
 	color: rgb(66, 66, 66)
-}
-#quick-order .title h4,
-#quick-order .unavailable h4 {
-	font-weight: 300;
 }
 #quick-order .title h1 {
 	color: rgb(131, 9, 9);
-}
-#quick-order .title h4 {
-	color: rgb(196, 196, 196);
 }
 #quick-order .content .cards .unavailable-description h1 {
 	color: rgb(131, 9, 9);
@@ -213,7 +206,7 @@
 		padding-top: 50px;
 	}
 	#quick-order .header .content {
-		box-shadow: 0px 0px 5px rgb(186, 0, 0);
+		border: 3px solid rgb(144, 0, 0);
 	}
 	#information .breakfast #breakfast-content a:hover {
 		padding: 10px;
