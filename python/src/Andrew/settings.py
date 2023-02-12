@@ -1,6 +1,6 @@
 from flask import *
 import shelve, python.classes.form as form
-
+from python.classes import Cart
 def account_update():
 	user_update = form.UpdateUser(request.form)
 	user_status = True
@@ -55,4 +55,4 @@ def account_delete():
 			product = shelf_products[key]
 			if product.get_cost() < 2:
 				products.append(product)
-		return redirect(url_for("show_index", user_status=user_status, products=products))
+		return redirect(url_for("show_index", user_status=user_status, products=products, Cart=Cart))
