@@ -26,7 +26,7 @@ class CreateProduct(Form):
 
     category = SelectField("Category",
                            validators = [validators.DataRequired(message = 'Select a category')],
-                           choices=[('','Select'),('B', 'Burger'), ('S', 'Sides'), ('D', 'Drinks')],
+                           choices=[('','Select'),('B', 'Burger'), ('S', 'Sides'), ('D', 'Drinks'), ('Bu','Bucket')],
                            default='')
 
 
@@ -38,6 +38,7 @@ class CreateProduct(Form):
 
     stock = IntegerField("Stock Amount", validators = [DataRequired(message = 'Enter a stock amount'),
                                                        validators.NumberRange(min=1, max=1000, message = 'Enter a number between 1-1000')])
+    addon = BooleanField("Is Add On?",default = False )                                                 
 #Done by Ryan
 class UpdateProduct(Form):
     product_id = IntegerField("Product Id", validators = [DataRequired(message = 'Enter a Product Id'),
@@ -60,3 +61,5 @@ class UpdateProduct(Form):
 
     stock = IntegerField("Stock Amount", validators = [DataRequired(message = 'Enter a stock amount'),
                                                        validators.NumberRange(min=1, max=1000, message = 'Enter a number between 1-1000')])
+
+    addon = BooleanField("Is Add On?",default = False )
