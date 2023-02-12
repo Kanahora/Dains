@@ -5,16 +5,16 @@ Manage Rewards
 
 
     {% block createbutton %}
-    <a href="/staff/rewards_create" class="btn btn-success" data-toggle="modal" class="add-btn"><i class="material-icons">&#xE147;</i> <span>Add New Reward</span></a>	
+    <a href="/staff/rewards_create" class="btn" data-toggle="modal" class="add-btn"><i class="material-icons">&#xE147;</i> <span>Add New Reward</span></a>	
     {% endblock %}
 
 
 {% block table %}
-<div>
+<div class="count-avail">
     {% if count == 0 %}
     <p> There are <u>no</u> rewards available. </p>
     {% else %}
-    <p> There {{ 'is' if count == 1 }} {{ 'are' if count > 1}} <u>{{ count }}</u>   reward{{ 's' if count > 1 }} available. </p>
+    <p> There {{ 'is' if count == 1 }} {{ 'are' if count > 1}} <u>{{ count }}</u> reward{{ 's' if count > 1 }} available. </p>
     {% endif %}
 </div>
 <thead>
