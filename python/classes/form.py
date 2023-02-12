@@ -73,7 +73,11 @@ class UpdateAccount(Form):
         'STAFF', 'CUSTOMER'], default='CUSTOMER')
 
     
+#Done By Rhaylene
 class CreateRewardForm(Form):
+    
     name = StringField("", [validators.DataRequired(message="Enter Reward Name")])
-    points = IntegerField("", [validators.DataRequired(message="Enter Points")])
-    description = TextAreaField("", [validators.DataRequired(message="Enter Reward Description")])
+    points = SelectField('', [validators.DataRequired()], choices=[('', 'Select'), ('100', '100'), ('200', '200'), ('300', '300'),('400', '400'),('500', '500')],
+default='')
+    discount = SelectField('', [validators.DataRequired()], choices=[('', 'Select'), ('10% off', '10% off'), ('15% off', '15% off'), ('20% off', '20% off'), ('25% off', '25% off'), ('30% off', '30% off')],
+default='')
