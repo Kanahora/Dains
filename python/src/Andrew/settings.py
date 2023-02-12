@@ -49,5 +49,10 @@ def account_delete():
 	if user_status == False:
 		return redirect(url_for("show_login"))
 	else:
-		products = shelve.open("database/products")
-		return render_template("index.html", user_status=user_status, products=products)
+		shelf_products = shelve.open("database/products")
+		products = list()
+		for key in shelf_products:
+			product = shelf_products[key]
+			if product.get_cost() < 2:
+				products.append(product)
+		return redirect(url_for("show_index", user_status=user_status, products=products))
