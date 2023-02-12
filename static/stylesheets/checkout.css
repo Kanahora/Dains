@@ -113,3 +113,75 @@ h3.product-name {
 .receipt .receipt-table table {
 	width: 100%;
 }
+
+.reward{
+	margin-top: 20px;
+	padding-bottom: 2px;
+	background-color: white;
+}
+.reward .text-start {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.reward .reward-header {
+	font-weight: bold;
+}
+.reward-redeeem {
+	width: 100%;
+	border: 0;
+	padding-top: 5px;
+	color: white;
+	text-shadow: 2px 2px black;
+	padding-bottom: 5px;
+	border-radius: 5px;
+	background-color: rgb(185, 0, 0);
+	font-weight: bold;
+	box-shadow: 2px 2px black;
+	transition: all 0.2s;
+}
+.reward-redeeem:hover {
+	background-color: rgb(213, 0, 0);
+}
+
+.back-to-menu{
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+	padding-top: 7px;
+	border-radius: 5px;
+	padding-bottom: 7px;
+	border: 2px solid rgb(113, 113, 113);
+}
+.back-to-menu-button {
+	font-weight: bold;
+	color: rgb(113, 113, 113);
+	text-decoration: none;
+}
+.back-to-menu-button:hover {
+	color: rgb(113, 113, 113);
+}
+.checkout {
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+	padding-top: 8px;
+	border-radius: 5px;
+	padding-bottom: 8px;
+	color: white;
+	margin-bottom: 20px;
+	background-color: rgb(185, 0, 0);
+}
+.back-to-menu-button {
+	font-weight: bold;
+	color: rgb(113, 113, 113);
+	text-decoration: none;
+}
+.checkout-button {
+	font-weight: bold;
+	color: rgb(255, 255, 255);
+	text-decoration: none;
+	text-shadow: 2px 2px black;
+}
+.checkout-button:hover {
+	color: white;
+}
