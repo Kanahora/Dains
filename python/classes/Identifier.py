@@ -1,3 +1,4 @@
+# Done by Glenn
 import shelve
 import uuid
 class Identifier:
