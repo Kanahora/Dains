@@ -1,9 +1,11 @@
+/* Dropdown Button */
 .dropbtn {
-    color :white;
+    
     font-size: 26px;
     border: none;
     cursor: pointer;
     background-color: #838383;
+	
   }
 #drop-icon{
     vertical-align: middle;
@@ -11,7 +13,6 @@
   .dropdown {
     position: relative;
     display: inline-block;
-    background-color:  #838383;
     
   }
   
@@ -38,7 +39,7 @@
     display: block;
   }
   
-  .dropdown-content a:hover {background-color: #f1f1f1;}
+  .dropdown-content a:hover {background-color: #6d6d6d;}
   
   .dropdown:hover .dropdown-content {
     /* display: block; */
@@ -49,29 +50,36 @@
     
     color: white;
   }
-
+/*Body*/
   body {
-	color: #566787;
 	background: #f5f5f5;
 	font-family: 'Varela Round', sans-serif;
 	font-size: 17px;
-	background-image: url("../images/mainbackground.png");
- 	background-color: #cccccc;
+	/* background-image: url("../images/mainbackground.png"); */
+ 	/* background-color: #cccccc; */
+	background-color: black;
 }
+
+/* Main Table */
 .table-responsive {
     margin: 30px 0;
 }
 .table-wrapper {
-	background: #fff;
+	/* background: #fff; */
+	background: rgba(32, 32, 32, 0.644);
 	padding: 20px 25px;
 	border-radius: 3px;
 	min-width: 1000px;
-	box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	/* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.048); */
 }
+
+/* Table Title */
 .table-title {        
 	padding-bottom: 15px;
-	background:  #838383;
-	color: #fff;
+	/* background:  #838383; */
+	/* color: #fff; */
+	background: rgb(149, 5, 5);
+	color: black;
 	padding: 16px 30px;
 	min-width: 100%;
 	margin: -20px -25px 10px;
@@ -85,7 +93,9 @@
 	float: right;
 }
 .table-title .btn {
-	color: #fff;
+	/* color: #fff; */
+	color: black;
+	font-weight: bold;
 	float: right;
 	font-size: 17px;
 	border: none;
@@ -94,47 +104,64 @@
 	border: none;
 	outline: none !important;
 	margin-left: 10px;
-	font-size: 22px;
+	font-size: 25px;
+	background-color: rgb(149, 5, 5);
+	
+	
+	
 }
 .table-title .btn i {
 	float: left;
 	font-size: 21px;
 	margin-right: 7px;
     margin-top: 3px;
+	
 }
 
 .table-title .btn span {
 	float: left;
-	margin-top: 2px;
+	margin-top: -1px;
+	
 }
+
+/* Table Head and Body */
 table.table tr th, table.table tr td {
 	border-color: #e9e9e9;
 	padding: 15px 17px;
 	vertical-align: middle;
+	color: white;
 	
 }
+
+/* Table Body */
+table.table tbody tr:hover{
+	background-color: rgba(53, 53, 53, 0.671);
+}
+
+/* Table Head */
 table.table tr th:first-child {
 	width: auto;
+	color: white;
 }
 table.table tr th:last-child {
 	width: 100;
+	color: white;
 }
-table.table-striped tbody tr:nth-of-type(odd) {
-	background-color: #fcfcfc;
-}
-table.table-striped.table-hover tbody tr:hover {
-	background: #f5f5f5;
-}
+
 table.table th i {
 	font-size: 17px;
 	margin: 0 5px;
 	cursor: pointer;
 }	
+
+/* Table Body */
 table.table td:last-child i {
 	opacity: 0.9;
 	font-size: 22px;
 	margin: 0 5px;
 }
+
+/* Table Buttons */
 table.table td a {
 	font-weight: bold;
 	color: #566787;
@@ -142,15 +169,22 @@ table.table td a {
 	text-decoration: none;
 	outline: none !important;
 }
+/* Update Button */
 table.table td a:hover {
 	color: #2196F3;
 }
+ 
 table.table td a.edit {
 	color: #FFC107;
 }
+/* Delete Button */
 table.table td a.delete {
 	color: #F44336;
 }
+.delete-btn{
+	margin-bottom: 0px;
+}
+
 table.table td i {
 	font-size: 19px;
 }
@@ -160,36 +194,36 @@ table.table .avatar {
 	margin-right: 10px;
 }
 
-.hint-text {
-	float: left;
-	margin-top: 10px;
-	font-size: 13px;
-}    
 
-
-
-
+/* Create/Update Form Fields*/
 form{
     padding: 10px 15px;
 }
-.delete-btn{
-	margin-bottom: 0px;
-}
+
 .form-fields{
     font-size: 17px;
-    color: black;
+	color: white;
 }
-.reward_title{
+/* Form Title */
+.form_title{
     text-align: center;
+	color: white;
 }
 
-.top-bar{
-	margin-right: 0px;
-	padding-right: 0px;
-}
-
+/* Add Button */
 .add-btn{
 	float: right;
+}
+.add-btn a:hover{
+	color: rgba(0, 0, 0, 0.612);
+}
+
+div.add-btn a.btn {
+	border: 0.15rem solid black;
+	border-radius: 10px;
+}
+div.add-btn a.btn:hover{
+	border: 0.15rem solid rgba(0, 0, 0, 0.612);
 }
 
 i.material-icons{
@@ -198,6 +232,11 @@ i.material-icons{
 
 #dropdownMenuButton1{
 	margin-left: -15px;
-	background-color: #838383;
+	/* background-color: #838383; */
+	background-color: rgb(149, 5, 5);
+}
+
+.count-avail{
+	color: #8c8c8c;
 }
 
