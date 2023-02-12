@@ -11,9 +11,6 @@ Add product
 {% from "@includes/_formHelper.html" import render_field %}
 <form method="POST" action="" novalidate>
     <div class="form-group">
-        {{ render_field(form.product_id, class="form-control") }}
-    </div>
-    <div class="form-group">
         {{ render_field(form.product_name, class="form-control") }}
     </div>
     <div class="form-group">
