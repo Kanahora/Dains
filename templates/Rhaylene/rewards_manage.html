@@ -5,7 +5,7 @@ Manage Rewards
 
 
     {% block createbutton %}
-    <a href="/staff/reward_create" class="btn btn-success" data-toggle="modal" class="add-btn"><i class="material-icons">&#xE147;</i> <span>Add New Reward</span></a>	
+    <a href="/staff/rewards_create" class="btn btn-success" data-toggle="modal" class="add-btn"><i class="material-icons">&#xE147;</i> <span>Add New Reward</span></a>	
     {% endblock %}
 
 
@@ -22,18 +22,18 @@ Manage Rewards
         <th> Unique ID </th>
         <th> Name </th>
         <th> Points Required </th>
-        <th> Description </th>
+        <th> Discount </th>
         <th></th>
         <th></th>
     </tr>
 </thead>
-{% for rewards in rewards_list %}
+{% for rewards in rewards_list.values() %}
 <tr>
     <td> {{ rewards.get_reward_id() }} </td>
     <td> {{ rewards.get_reward_name() }} </td>
     <td> {{ rewards.get_reward_points() }} </td>
-    <td> {{ rewards.get_reward_description() }} </td>
-    <td> <a href="/staff/reward_update/{{rewards.get_reward_id()}}" class="btn btn-warning"> Update </a> </td>
+    <td> {{ rewards.get_reward_discount() }} </td>
+    <td> <a href="/staff/rewards_update/{{rewards.get_reward_id()}}" class="btn btn-warning"> Update </a> </td>
     <td>
         <form action="{{url_for('delete_reward', id=rewards.get_reward_id())}}" method="POST" class="delete-btn">
             <!-- Open Modal Button -->
