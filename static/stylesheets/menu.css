@@ -1,0 +1,118 @@
+body {
+	background-image: url("../images/quickorderbackground.jpg");
+	background-size: cover;
+	background-repeat: repeat;
+}
+.bg {
+	padding-top: 50px;
+	height: 90vh;
+}
+.popper {
+	background-color: rgba(0, 0, 0, 0.896);
+	border-right: 3px solid rgb(144, 0, 0);
+	border-left: 3px solid rgb(144, 0, 0);
+	margin-bottom: 50px;
+	padding-bottom: 50px;
+}
+.header {
+	padding-top: 30px;
+	padding-bottom: 10px;
+}
+.header h1 {
+	color: rgb(144, 0, 0);
+	font-weight: 900;
+	text-shadow: 3px 3px 3px black;
+	text-transform: uppercase;
+}
+
+.cat-nav th,
+.cat-nav td,
+.cat-nav th a,
+.cat-nav td a {
+	text-transform: uppercase;
+	color: rgb(144, 0, 0);
+	font-weight: 600;
+	transition: all 0.2s;
+	text-shadow: 3px 3px 3px black;
+	text-decoration: none;
+}
+.cat-nav th a.active,
+.cat-nav td a.active {
+	color: rgb(219, 0, 0);
+}
+#uncompressed {
+	padding-top: 15px;
+}
+#uncompressed th {
+	padding-bottom: 15px;
+}
+#uncompressed td {
+	padding-bottom: 3px;
+}
+.cat-nav th a:hover,
+.cat-nav td a:hover {
+	color: rgb(219, 0, 0);
+}
+
+#uncompressed a {
+	font-size: 25px;
+}
+#compressed {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+#compressed a {
+	padding: 5px;
+}
+
+.menu .products-display .card-itself {
+	padding: 10px;
+}
+.menu .products-display .card-itself .card {
+	border: none;
+	background-color: rgb(0, 0, 0);
+	color: white;
+	box-shadow: 2px 2px 3px rgb(145, 0, 0);
+	transition: all 0.2s;
+}
+.menu .products-display .card-itself .card:hover {
+	transform: scale(1.1);
+}
+.menu .products-display .card-itself .card .card-body .card-title {
+	text-transform: uppercase;
+	font-weight: 900;
+	color: rgb(144, 0, 0);
+}
+.menu .products-display .card-itself .card .card-body .card-text {
+	font-style: italic;
+	color: rgb(82, 82, 82);
+}
+.menu .products-display .card-itself .card .card-body #addtocart-button {
+	color: rgb(144, 0, 0);
+	background-color: black;
+	border: 2px solid rgb(144, 0, 0);
+	transition: all 0.5s;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 5px;
+}
+.menu .products-display .card-itself .card .card-body #addtocart-button:hover {
+	color: rgb(204, 0, 0);
+	border: 2px solid rgb(204, 0, 0);
+}
+
+@media only screen and (min-width:771px) {
+	#compressed {
+		display: none;
+	}
+}
+@media only screen and (max-width:770px) {
+	#uncompressed {
+		display: none;
+	}
+	#compressed {
+		display: block;
+	}
+}
