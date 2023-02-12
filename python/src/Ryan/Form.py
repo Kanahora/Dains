@@ -39,7 +39,7 @@ class UpdateProduct(Form):
 
     category = SelectField("Category",
                            validators = [validators.DataRequired(message = 'Select a category')],
-                           choices=[('','Select'),('B', 'Burger'), ('S', 'Sides'), ('D', 'Drinks')],
+                           choices=[('','Select'),('Burger', 'Burger'), ('Sides', 'Sides'), ('Drinks', 'Drinks'),('Bucket','Bucket')],
                            default='')
     price = FloatField("Price ",
                        validators =[
