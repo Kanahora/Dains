@@ -41,7 +41,7 @@ class Cart:
 				biggest_number = number
 		return biggest_number + 1
 
-	def add_product(self, product_id: str, *addons: list[str]):
+	def add_product(self, product_id: str, *addons):
 		products = shelve.open("database/products")
 		if products.get(product_id):
 			products.close()
