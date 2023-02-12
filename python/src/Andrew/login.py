@@ -23,11 +23,9 @@ def login():
 		user_db.close()
 
 	if user_status == True:
-		print("test")
 		products = shelve.open("database/products")
 		return redirect(url_for("show_index", products=products, user_status=user_status))
 	else:
-		print("test 2")
 		if user_error == True:
 			session["error"] = "Incorrect Email and/or Password. Please try again."
 		return render_template("Andrew/login.html", form=user_login, user_status=user_status)
