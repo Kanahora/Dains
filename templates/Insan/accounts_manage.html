@@ -5,7 +5,7 @@ Manage Accounts
 {% block table %}
 <div>
     {% if count == 0 %}
-    <p> No accounts have been made </p>
+    <p> <<u> No accounts have been made </u></p>
     {% else %}
     <p> There {{ 'is' if count == 1 }}{{ 'are' if count > 1}} {{ count }} account{{ 's' if count > 1 }} available </p>
     {% endif %}
