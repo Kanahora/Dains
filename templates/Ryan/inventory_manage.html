@@ -32,13 +32,13 @@ Manage Inventory
     <tr>
         <td> {{ product_list[product].get_id() }} </td>
         <td> {{ product_list[product].get_name() }} </td> 
-        {% if product_list[product].get_category() == "B" %}
+        {% if product_list[product].get_category() == "Burger" %}
             <td>Burger</td>
-        {% elif product_list[product].get_category() == "S" %}
+        {% elif product_list[product].get_category() == "Sides" %}
             <td>Sides</td>
-          {% elif product_list[product].get_category() == "D" %}
+          {% elif product_list[product].get_category() == "Drinks" %}
             <td>Drink</td>
-            {% elif product_list[product].get_category() == "Bu" %}
+            {% elif product_list[product].get_category() == "Bucket" %}
             <td>Bucket</td>
           {% endif %}
         <td>{{ "$%.2f"|format(product_list[product].get_cost()) }}</td> 
