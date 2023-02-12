@@ -1,3 +1,6 @@
+# File handling by Glenn
+# Honestly don't really like the way it's handled, by this saved a lot of time by setting directory names
+# That way, people won't need to touch each other's code. And they can just re-upload their own directory
 from flask import *
 app = Flask(__name__)
 app.secret_key = "secret"
