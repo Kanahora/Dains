@@ -3,5 +3,64 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/index.css')}}">
 {% endblock %}
 {% block content %}
-<p> Hello World </p>
+<div class="container-fluid">
+	<div class="container border">
+		<!-- The header -->
+		<div class="header text-center">
+			<h1> {{ category if category }}{{ 'Full Menu' if not category }} </h1>
+		</div>
+		<!-- Menu -->
+		<div class="menu">
+			<!-- Side navigation compressed -->
+			<div class="border cat-nav compressed" style="display: none;">
+				<table>
+					<tr>
+						<th rowspan="100"> <a href="/menu"> Full Menu </a> </th>
+					</tr>
+					{% for cat in categories %}
+					<tr>
+						<td> <a href="/menu/{{ cat }}"> {{ cat }} </a> </td>
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
+			<div class="row">
+				<!-- Side navigation -->
+				<div class="col-md-2 border cat-nav">
+					<table>
+						<tr>
+							<th> <a href="/menu"> Full Menu </a> </th>
+						</tr>
+						{% for cat in categories %}
+						<tr>
+							<td> <a href="/menu/{{ cat }}"> {{ cat }} </a> </td>
+						</tr>
+						{% endfor %}
+					</table>
+				</div>
+				<!-- Products display -->
+				<div class="col-md-10 border products-display">
+					<div class="row">
+						{% for id in products %}
+						{% if (category and products[id].get_category() == category) or (not category) %}
+						<div class="col-md-3">
+							<div class="card">
+								<img src="{{ url_for('static', filename='images/burger.jpg') }}" class="card-img-top">
+								<div class="card-body">
+									<h5 class="card-title"> {{ products[id].get_name() }} </h5>
+									<p class="card-text"> {{ "SGD${:0,.2f}".format(products[id].get_cost()) }} </p>
+									<form method="post">
+										<button type="submit" name="add-to-cart" value="{{ products[id].get_id() }}"> ADD </button>
+									</form>
+								</div>
+							</div>
+						</div>
+						{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock %}
