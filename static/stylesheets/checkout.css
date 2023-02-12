@@ -103,3 +103,13 @@ h3.product-name {
 	font-style: italic;
 	color: rgb(63, 63, 63);
 }
+
+.receipt .receipt-table {
+	width: 100%;
+	padding: 10px;
+	padding-bottom: 0;
+	background-color: white;
+}
+.receipt .receipt-table table {
+	width: 100%;
+}
