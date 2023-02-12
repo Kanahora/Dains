@@ -209,4 +209,6 @@ form{
 .reward_title{
     text-align: center;
 }
-
+.delete-btn{
+    margin-bottom: 0px;
+}
