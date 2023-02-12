@@ -103,8 +103,27 @@
 				</div>
 			</div>
 			<!-- Receipt -->
-			<div class="col-md-4">
-				<p> Receipt </p>
+			<div class="col-md-4 receipt">
+				<div class="container receipt-table">
+					<table clas>
+						<tr>
+							<th> Subtotal </th>
+							<td align="right"> {{ "${:0,.2f}".format(Cart.Cart(session.get("id")).get_total_before_gst()) }}</td>
+						</tr>
+						<tr>
+							<th> Delivery Surcharge </th>
+							<td align="right"> $4.50 </td>
+						</tr>
+						<tr>
+							<th> GST Included (8%) </th>
+							<td align="right"> {{ "${:0,.2f}".format(Cart.Cart(session.get("id")).get_gst()) }} </td>
+						</tr>
+						<tr>
+							<th> <h3> TOTAL </h3> </th>
+							<td align="right"> <h1> {{ "${:0,.2f}".format(Cart.Cart(session.get("id")).get_total()) }} </h1></td>
+						</tr>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>
