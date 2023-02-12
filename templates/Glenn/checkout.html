@@ -3,5 +3,11 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/index.css')}}">
 {% endblock %}
 {% block content %}
-<p> Hello World </p>
+<div class="container">
+	{% if not Cart.Cart(session.get('id')).view_cart() %}
+	<p> Empty Cart </p>
+	{% else %}
+	<p> Not Empty Cart </p>
+	{% endif %}
+</div>
 {% endblock %}
