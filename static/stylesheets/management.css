@@ -246,3 +246,22 @@ i.material-icons{
 	color: #8c8c8c;
 }
 
+#account_title {
+	color: white;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	text-align: center;
+}
+
+#account_form {
+	margin-top: 0;
+	padding-top: 0;
+}
+
+#merge {
+	width: 50%;
+}
+
+#account_button {
+	margin-top: 1em;
+}
