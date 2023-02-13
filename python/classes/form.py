@@ -57,19 +57,19 @@ class UpdateUser(Form):
     
 # Done by Insan
 class UpdateAccount(Form):
-    name = StringField('Name', [validators.Length(
+    name = StringField('', [validators.Length(
         min=1, max=150), validators.InputRequired(message='Enter your Name')])
 
-    phone = StringField('Mobile Number', validators=[
+    phone = StringField('', validators=[
         validators.InputRequired(message='Enter your Mobile Number'),
         validators.Length(
             min=8, max=8, message='Mobile Number must be 8 numerals'),
         validators.Regexp(regex='^[8-9]', message='Mobile Number must start with 8 or 9')])
 
     email = EmailField(
-        'Email', [validators.Email(message="Enter a valid Email"), validators.InputRequired(message='Enter your Email')])
+        '', [validators.Email(message="Enter a valid Email"), validators.InputRequired(message='Enter your Email')])
 
-    status = RadioField('Status', choices=[
+    status = SelectField('', choices=[
         'STAFF', 'CUSTOMER'], default='CUSTOMER')
 
     
